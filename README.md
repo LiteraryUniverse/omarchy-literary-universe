@@ -52,7 +52,8 @@ omarchy-shell shell toggle literaryuniverse.companion '{}'
 ```
 
 Configure background refresh and the three banner toggles in Omarchy's plugin
-settings. Refresh runs once a minute while signed in; banners are off by default.
+settings. Daily diary banners also require reminders to be enabled in LU's diary
+settings; their hour and timezone come from LU. Refresh runs once a minute while signed in; banners are off by default.
 Turning off background refresh also turns off desktop reminders until re-enabled.
 The panel still refreshes when opened. Opening notification preferences in LU
 controls the underlying Novu workflows.
