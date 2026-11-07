@@ -1,0 +1,22 @@
+{
+  "scratchpad": "Bilježnica",
+  "diary": "Dnevnik",
+  "tasks": "Zadaci",
+  "continue": "Nastavi pisati",
+  "notifications": "Obavijesti",
+  "blog": "Blog",
+  "save": "Spremi",
+  "add": "Dodaj",
+  "done": "Gotovo",
+  "login": "Prijava",
+  "logout": "Odjava",
+  "loading": "Učitavanje…",
+  "error": "Došlo je do pogreške. Pokušajte ponovno.",
+  "refresh": "Osvježi",
+  "open": "Prikaži",
+  "read": "Označi kao pročitano",
+  "capture": "Vaše bilješke i ideje dostupne su svugdje na web-mjestu.",
+  "pending": "Na čekanju",
+  "unavailable": "Nije dostupno",
+  "snooze": "30′"
+}

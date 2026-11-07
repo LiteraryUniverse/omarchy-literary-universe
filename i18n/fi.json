@@ -1,0 +1,22 @@
+{
+  "scratchpad": "Muistilappu",
+  "diary": "Päiväkirja",
+  "tasks": "Tehtävät",
+  "continue": "Jatka kirjoittamista",
+  "notifications": "Ilmoitukset",
+  "blog": "Blogi",
+  "save": "Tallenna",
+  "add": "Lisää",
+  "done": "Valmis",
+  "login": "Kirjaudu sisään",
+  "logout": "Kirjaudu ulos",
+  "loading": "Ladataan...",
+  "error": "Jokin meni pieleen. Yritä uudelleen.",
+  "refresh": "Päivitä",
+  "open": "Näytä",
+  "read": "Merkitse luetuksi",
+  "capture": "Muistiinpanosi ja ideasi ovat saatavilla missä tahansa sivustolla.",
+  "pending": "Vireillä",
+  "unavailable": "Ei saatavilla",
+  "snooze": "30′"
+}

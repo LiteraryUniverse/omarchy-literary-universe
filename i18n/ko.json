@@ -1,0 +1,22 @@
+{
+  "scratchpad": "스크래치패드",
+  "diary": "일기",
+  "tasks": "작업",
+  "continue": "이어서 쓰기",
+  "notifications": "알림",
+  "blog": "블로그",
+  "save": "저장",
+  "add": "추가",
+  "done": "완료",
+  "login": "로그인",
+  "logout": "로그아웃",
+  "loading": "로딩 중...",
+  "error": "문제가 발생했습니다. 다시 시도해 주세요.",
+  "refresh": "새로 고침",
+  "open": "보기",
+  "read": "읽음으로 표시",
+  "capture": "사이트 어디에서나 노트와 아이디어에 액세스할 수 있습니다.",
+  "pending": "보류 중",
+  "unavailable": "이용 불가",
+  "snooze": "30′"
+}

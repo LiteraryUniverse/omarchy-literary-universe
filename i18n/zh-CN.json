@@ -1,0 +1,22 @@
+{
+  "scratchpad": "便签",
+  "diary": "日记",
+  "tasks": "任务",
+  "continue": "继续写作",
+  "notifications": "通知",
+  "blog": "博客",
+  "save": "保存",
+  "add": "添加",
+  "done": "完成",
+  "login": "登录",
+  "logout": "退出",
+  "loading": "正在加载…",
+  "error": "出现错误。请重试。",
+  "refresh": "刷新",
+  "open": "查看",
+  "read": "标记为已读",
+  "capture": "您的笔记和灵感可在网站各处访问。",
+  "pending": "待处理",
+  "unavailable": "不可用",
+  "snooze": "30′"
+}

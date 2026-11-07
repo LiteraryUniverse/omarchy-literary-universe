@@ -1,0 +1,22 @@
+{
+  "scratchpad": "草稿紙",
+  "diary": "日記",
+  "tasks": "待辦事項",
+  "continue": "繼續寫作",
+  "notifications": "通知",
+  "blog": "部落格",
+  "save": "儲存",
+  "add": "新增",
+  "done": "完成",
+  "login": "登入",
+  "logout": "登出",
+  "loading": "載入中...",
+  "error": "發生錯誤，請再試一次。",
+  "refresh": "重新整理",
+  "open": "查看",
+  "read": "標記為已讀",
+  "capture": "您的筆記和想法可以在網站的任何地方訪問。",
+  "pending": "待定",
+  "unavailable": "不開放",
+  "snooze": "30′"
+}

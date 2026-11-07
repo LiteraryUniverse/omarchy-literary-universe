@@ -1,0 +1,22 @@
+{
+  "scratchpad": "メモ欄",
+  "diary": "日記",
+  "tasks": "タスク",
+  "continue": "執筆を再開",
+  "notifications": "通知",
+  "blog": "ブログ",
+  "save": "保存",
+  "add": "追加",
+  "done": "完了",
+  "login": "ログイン",
+  "logout": "ログアウト",
+  "loading": "読み込み中...",
+  "error": "問題が発生しました。もう一度お試しください。",
+  "refresh": "更新",
+  "open": "表示",
+  "read": "既読としてマーク",
+  "capture": "サイトのどこからでもご自身専用のメモ欄やアイデアにアクセスが可能です。",
+  "pending": "申請中",
+  "unavailable": "提供不可",
+  "snooze": "30′"
+}

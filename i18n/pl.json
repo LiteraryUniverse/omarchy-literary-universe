@@ -1,0 +1,22 @@
+{
+  "scratchpad": "Notatnik",
+  "diary": "Dziennik",
+  "tasks": "Zadania",
+  "continue": "Wróć do pisania",
+  "notifications": "Powiadomienia",
+  "blog": "Blog",
+  "save": "Zapisz",
+  "add": "Dodaj",
+  "done": "Gotowe",
+  "login": "Zaloguj się",
+  "logout": "Wyloguj się",
+  "loading": "Wczytywanie...",
+  "error": "Coś poszło nie tak. Spróbuj ponownie.",
+  "refresh": "Odśwież",
+  "open": "Zobacz",
+  "read": "Oznacz jako przeczytane",
+  "capture": "Twoje notatki i pomysły dostępne w każdym miejscu na stronie.",
+  "pending": "W toku",
+  "unavailable": "Niedostępne",
+  "snooze": "30′"
+}

@@ -1,0 +1,22 @@
+{
+  "scratchpad": "Kladdeblok",
+  "diary": "Dagbog",
+  "tasks": "Opgaver",
+  "continue": "Genoptag skrivningen",
+  "notifications": "Notifikationer",
+  "blog": "Blog",
+  "save": "Gem",
+  "add": "Tilføj",
+  "done": "Færdig",
+  "login": "Log ind",
+  "logout": "Log ud",
+  "loading": "Indlæser...",
+  "error": "Noget gik galt. Prøv igen.",
+  "refresh": "Opdater",
+  "open": "Vis",
+  "read": "Marker som læst",
+  "capture": "Dine noter og ideer tilgængelige overalt på siden.",
+  "pending": "Afventer",
+  "unavailable": "Ikke tilgængelig",
+  "snooze": "30′"
+}

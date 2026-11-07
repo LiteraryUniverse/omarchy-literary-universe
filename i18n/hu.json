@@ -1,0 +1,22 @@
+{
+  "scratchpad": "Vázlat",
+  "diary": "Napló",
+  "tasks": "Feladatok",
+  "continue": "Írás folytatása",
+  "notifications": "Értesítések",
+  "blog": "Blog",
+  "save": "Mentés",
+  "add": "Hozzáadás",
+  "done": "Kész",
+  "login": "Bejelentkezés",
+  "logout": "Kijelentkezés",
+  "loading": "Betöltés...",
+  "error": "Valami hiba történt. Kérjük, próbáld újra.",
+  "refresh": "Frissítés",
+  "open": "Megtekintés",
+  "read": "Jelölje létoltnak",
+  "capture": "Az Ön jegyzetei és ötletei bárhol elérhetők a webhelyen.",
+  "pending": "Függőben",
+  "unavailable": "Nem elérhető",
+  "snooze": "30′"
+}

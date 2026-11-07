@@ -1,0 +1,22 @@
+{
+  "scratchpad": "Scratchpad",
+  "diary": "Diary",
+  "tasks": "Tasks",
+  "continue": "Resume writing",
+  "notifications": "Notifications",
+  "blog": "Blog",
+  "save": "Save",
+  "add": "Add",
+  "done": "Done",
+  "login": "Log in",
+  "logout": "Logout",
+  "loading": "Loading...",
+  "error": "Something went wrong. Please try again.",
+  "refresh": "Refresh",
+  "open": "View",
+  "read": "Mark as read",
+  "capture": "Your notes and ideas accessible anywhere on the site.",
+  "pending": "Pending",
+  "unavailable": "Not available",
+  "snooze": "30′"
+}

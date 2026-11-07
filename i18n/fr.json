@@ -1,0 +1,22 @@
+{
+  "scratchpad": "Bloc-notes",
+  "diary": "Journal",
+  "tasks": "Tâches",
+  "continue": "Reprendre l'écriture",
+  "notifications": "Notifications",
+  "blog": "Blog",
+  "save": "Sauvegarder",
+  "add": "Ajouter",
+  "done": "Terminé",
+  "login": "Se connecter",
+  "logout": "Déconnexion",
+  "loading": "Chargement...",
+  "error": "Une erreur s'est produite. Veuillez réessayer.",
+  "refresh": "Actualiser",
+  "open": "Voir",
+  "read": "Marquer comme lu",
+  "capture": "Vos notes et vos idées sont accessibles partout sur le site.",
+  "pending": "En attente",
+  "unavailable": "Non disponible",
+  "snooze": "30′"
+}
