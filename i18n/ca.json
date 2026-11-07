@@ -1,0 +1,22 @@
+{
+  "scratchpad": "Bloc de notes",
+  "diary": "Diari",
+  "tasks": "Tasques",
+  "continue": "Reprèn l'escriptura",
+  "notifications": "Notificacions",
+  "blog": "Blog",
+  "save": "Desar",
+  "add": "Afegir",
+  "done": "Fet",
+  "login": "Inicia la sessió",
+  "logout": "Tanca la sessió",
+  "loading": "Carregant...",
+  "error": "Alguna cosa ha anat malament. Torna-ho a provar.",
+  "refresh": "Actualitza",
+  "open": "Mostra",
+  "read": "Marcar com llegit",
+  "capture": "Les teves notes i idees accessibles des de qualsevol lloc del lloc web.",
+  "pending": "Pendent",
+  "unavailable": "No disponible",
+  "snooze": "30′"
+}

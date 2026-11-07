@@ -1,0 +1,22 @@
+{
+  "scratchpad": "Bloc de notas",
+  "diary": "Diario",
+  "tasks": "Tareas",
+  "continue": "Retomar la escritura",
+  "notifications": "Notificaciones",
+  "blog": "Blog",
+  "save": "Guardar",
+  "add": "Añadir",
+  "done": "Hecho",
+  "login": "Iniciar sesión",
+  "logout": "Cerrar sesión",
+  "loading": "Cargando...",
+  "error": "Algo ha salido mal. Inténtalo de nuevo.",
+  "refresh": "Actualizar",
+  "open": "Ver",
+  "read": "Marcar como leído",
+  "capture": "Tus notas e ideas son accesibles en cualquier lugar del sitio.",
+  "pending": "Pendiente",
+  "unavailable": "No disponible",
+  "snooze": "30′"
+}

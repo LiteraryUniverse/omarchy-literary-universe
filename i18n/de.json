@@ -1,0 +1,22 @@
+{
+  "scratchpad": "Notizblock",
+  "diary": "Tagebuch",
+  "tasks": "Aufgaben",
+  "continue": "Schreiben fortsetzen",
+  "notifications": "Benachrichtigungen",
+  "blog": "Blog",
+  "save": "Speichern",
+  "add": "Hinzufügen",
+  "done": "Fertig",
+  "login": "Anmelden",
+  "logout": "Abmelden",
+  "loading": "Laden...",
+  "error": "Etwas ist schiefgelaufen. Bitte versuche es noch einmal.",
+  "refresh": "Aktualisieren",
+  "open": "Ansehen",
+  "read": "Als gelesen markieren",
+  "capture": "Ihre Notizen und Ideen sind überall auf der Website zugänglich.",
+  "pending": "Anhängig",
+  "unavailable": "Nicht verfügbar",
+  "snooze": "30′"
+}

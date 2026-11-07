@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "literaryuniverse.companion",
+  "name": "Literary Universe",
+  "version": "0.1.0",
+  "author": "Literary Universe",
+  "license": "MIT",
+  "description": "Capture notes, manage tasks, resume writing and follow Literary Universe from your desktop.",
+  "kinds": ["bar-widget"],
+  "entryPoints": {"barWidget": "Panel.qml"},
+  "barWidget": {
+    "displayName": "Literary Universe",
+    "category": "Productivity",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {"backgroundRefresh": true, "diaryReminders": false, "messageBanners": false, "releaseBanners": false},
+    "schema": [
+      {"key":"backgroundRefresh","type":"boolean","label":"Refresh once a minute while signed in","defaultValue":true},
+      {"key":"diaryReminders","type":"boolean","label":"Desktop diary reminders","defaultValue":false},
+      {"key":"messageBanners","type":"boolean","label":"Desktop message notifications","defaultValue":false},
+      {"key":"releaseBanners","type":"boolean","label":"Desktop release notifications","defaultValue":false}
+    ]
+  }
+}

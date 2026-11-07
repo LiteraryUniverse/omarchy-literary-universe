@@ -1,0 +1,22 @@
+{
+  "scratchpad": "Skraplatta",
+  "diary": "Dagbok",
+  "tasks": "Uppgifter",
+  "continue": "Fortsätt skriva",
+  "notifications": "Notifikationer",
+  "blog": "Blogg",
+  "save": "Spara",
+  "add": "Lägg till",
+  "done": "Klar",
+  "login": "Logga in",
+  "logout": "Logga ut",
+  "loading": "Laddar...",
+  "error": "Något gick fel. Försök igen.",
+  "refresh": "Uppdatera",
+  "open": "Visa",
+  "read": "Markera som läst",
+  "capture": "Dina anteckningar och idéer tillgängliga var som helst på webbplatsen.",
+  "pending": "Avvaktande",
+  "unavailable": "Inte tillgänglig",
+  "snooze": "30′"
+}

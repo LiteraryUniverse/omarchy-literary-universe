@@ -1,0 +1,22 @@
+{
+  "scratchpad": "Qaydlar",
+  "diary": "Kundalik",
+  "tasks": "Vazifalar",
+  "continue": "Yozishni davom ettirish",
+  "notifications": "Bildirishnomalar",
+  "blog": "Blog",
+  "save": "Saqlash",
+  "add": "Qo‘shish",
+  "done": "Bajarildi",
+  "login": "Kirish",
+  "logout": "Chiqish",
+  "loading": "Yuklanmoqda…",
+  "error": "Xatolik yuz berdi. Qayta urinib ko‘ring.",
+  "refresh": "Yangilash",
+  "open": "Ko‘rish",
+  "read": "O‘qilgan deb belgilash",
+  "capture": "Qayd va g‘oyalaringizga saytning istalgan joyidan kirishingiz mumkin.",
+  "pending": "Kutilmoqda",
+  "unavailable": "Mavjud emas",
+  "snooze": "30′"
+}

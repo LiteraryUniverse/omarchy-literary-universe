@@ -1,0 +1,22 @@
+{
+  "scratchpad": "Märkmik",
+  "diary": "Päevik",
+  "tasks": "Ülesanded",
+  "continue": "Jätka kirjutamist",
+  "notifications": "Teavitused",
+  "blog": "Blogi",
+  "save": "Salvesta",
+  "add": "Lisa",
+  "done": "Valmis",
+  "login": "Logi sisse",
+  "logout": "Logi välja",
+  "loading": "Laadimine...",
+  "error": "Midagi läks valesti. Palun proovi uuesti.",
+  "refresh": "Värskenda",
+  "open": "Vaata",
+  "read": "Märgi loetuks",
+  "capture": "Sinu märkmed ja ideed on kättesaadavad igal pool saidil.",
+  "pending": "Ootel",
+  "unavailable": "Pole saadaval",
+  "snooze": "30′"
+}
