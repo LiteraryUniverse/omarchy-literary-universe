@@ -1,6 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { createServer } from 'node:http'
+import { spawn } from 'node:child_process'
 import { mkdtemp, writeFile, mkdir, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -41,6 +42,19 @@ test('bridge preserves ambiguous captures and isolates drafts when accounts chan
     assert.equal(retried.draft,'')
     assert.deepEqual(captures[0],captures[1])
     assert.equal(captures[1].text,'Keep this note')
+    // JSON escaping must not reject otherwise valid 20,000-character drafts.
+    const output = await new Promise((resolve, reject) => {
+      const child = spawn(process.execPath, [new URL('../src/bridge.mjs', import.meta.url).pathname], {
+        env: { ...process.env, LU_COMPANION_URL: base }, stdio: ['pipe', 'pipe', 'pipe']
+      })
+      let stdout = ''
+      child.stdout.on('data', chunk => stdout += chunk)
+      child.on('error', reject)
+      child.on('exit', code => code === 0 ? resolve(JSON.parse(stdout)) : reject(new Error(stdout)))
+      child.stdin.end(JSON.stringify({ action: 'draft', userId: 'alice', text: '"'.repeat(20000) }) + '\n')
+    })
+    assert.equal(output.draftSaved, true)
+    assert.equal((await run({action:'refresh'},base)).draft.length, 20000)
   } finally {
     process.env.PATH=oldPath
     if(oldState===undefined)delete process.env.XDG_STATE_HOME;else process.env.XDG_STATE_HOME=oldState

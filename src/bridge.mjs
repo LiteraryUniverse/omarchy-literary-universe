@@ -88,7 +88,7 @@ export async function run(input, base = baseUrl(process.env.LU_COMPANION_URL)) {
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   try {
     let raw = ''
-    for await (const chunk of process.stdin) { raw += chunk; if (raw.length > 40000) throw new ApiError('input'); if (raw.includes('\n')) break }
+    for await (const chunk of process.stdin) { raw += chunk; if (raw.length > 128000) throw new ApiError('input'); if (raw.includes('\n')) break }
     console.log(JSON.stringify(await run(JSON.parse(raw))))
   } catch (error) {
     // Code-only errors: never echo upstream bodies, credentials or user text.

@@ -58,7 +58,7 @@ Panel {
     if (result.error) {
       if (result.error === "signed_out") {
         // Save the outgoing account's unsent typing before removing its view.
-        if (dirtyDraft && editor && snapshot.userId) invoke("draft", {text: editor.text, userId: snapshot.userId})
+        if (!result.pending && dirtyDraft && editor && snapshot.userId) invoke("draft", {text: editor.text, userId: snapshot.userId})
         snapshot = {signedIn: false}
         if (editor) { loadingDraft = true; editor.text = ""; loadingDraft = false }
         dirtyDraft = false
@@ -94,7 +94,11 @@ Panel {
   }
   Timer { interval: 60000; repeat: true; running: root.snapshot.signedIn && root.setting("backgroundRefresh", true); onTriggered: root.refresh(true) }
   Component.onCompleted: refresh(false)
-  onOpenedChanged: if (opened) refresh(false)
+  onOpenedChanged: {
+    if (opened) refresh(false)
+    else if (dirtyDraft && editor && snapshot.userId && !snapshot.pending && !(busy && current.action === "capture"))
+      invoke("draft", {text: editor.text})
+  }
 
   BarIconButton {
     id: button
