@@ -16,10 +16,11 @@ test('bridge preserves ambiguous captures and isolates drafts when accounts chan
     let body = ''; for await (const chunk of req) body += chunk
     res.setHeader('content-type', 'application/json')
     assert.equal(req.headers.authorization, 'Bearer test-token')
-    if(req.url.endsWith('/summary')) res.end(JSON.stringify({userId,tasks:[],diary:{due:false}}))
+    if(req.url.endsWith('/summary')) res.end(JSON.stringify({userId,diary:{due:false}}))
     else if(req.url.endsWith('/capture')) { captures.push(JSON.parse(body)); if(failCapture){failCapture=false;res.writeHead(503).end('{"error":"unavailable"}')}else res.end('{"ok":true}') }
     else if(req.url.endsWith('/scratchpad')) res.end('{"text":"Existing"}')
     else if(req.url.endsWith('/notifications')) res.end('{"available":true,"items":[],"hasMore":false}')
+    else if(req.url.endsWith('/tasks')) res.end('{"items":[]}')
     else if(req.url.endsWith('/article')) res.end('null')
     else res.writeHead(404).end('{}')
   })

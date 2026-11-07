@@ -19,7 +19,7 @@ test('public client uses supported scopes and PKCE, rotates refresh tokens and r
         res.end(JSON.stringify(Object.fromEntries(['authorization', 'token', 'registration', 'revocation'].map(k => [`${k}_endpoint`, `${base}/${k}`]))))
       } else if (req.url === '/registration') {
         const client = JSON.parse(body)
-        assert.equal(client.scope, 'companion:read companion:write scratchpad:read scratchpad:write')
+        assert.equal(client.scope, 'companion:read tasks:read tasks:write notifications:read notifications:write scratchpad:read scratchpad:write')
         assert.equal(client.token_endpoint_auth_method, 'none')
         assert.ok(client.grant_types.includes('refresh_token'))
         res.end('{"client_id":"public-client"}')
