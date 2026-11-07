@@ -5,7 +5,7 @@ import { execFile } from 'node:child_process'
 import { promisify } from 'node:util'
 import { ApiError, request } from './http.mjs'
 const exec = promisify(execFile)
-const scopes = 'companion:read companion:write scratchpad:read scratchpad:write'
+const scopes = 'companion:read tasks:read tasks:write notifications:read notifications:write scratchpad:read scratchpad:write'
 const account = (base) => createHash('sha256').update(base).digest('hex')
 
 export async function keyring(base, value) {

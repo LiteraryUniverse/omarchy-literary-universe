@@ -37,12 +37,12 @@ Run `omarchy plugin validate` on the directory, rescan with
 installation or unsynced local data.
 
 Click the book icon and choose **Log in**. Your browser opens LU's OAuth consent
-page. The plugin never asks for your LU password. Authentication needs all four
-permissions: `companion:read`, `companion:write`, `scratchpad:read`, and
-`scratchpad:write`. LU issues rotating refresh tokens for this public client.
-The companion permission
-covers tasks, reminder status, recent writing and notifications; it does not
-expose diary entry text. Work-restricted and organization credentials are refused.
+page. The plugin never asks for your LU password. Authentication requests separate permissions:
+`companion:read` for reminder status and recent writing; `tasks:read` and
+`tasks:write` for personal tasks; `notifications:read` and `notifications:write`
+for the inbox and read state; and `scratchpad:read` and `scratchpad:write` for
+notes. LU issues rotating refresh tokens for this public client. Diary entry
+text is not exposed. Work-restricted and organization credentials are refused.
 
 The panel uses Tab to move between controls, Escape to close and Ctrl+Enter to
 submit a capture. This command can be assigned to your preferred keyboard shortcut:

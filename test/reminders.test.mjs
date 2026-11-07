@@ -13,9 +13,10 @@ test('reminders honor opt-in, daily deduplication and snooze; notification banne
   let diary = { due: true, date: '2026-11-07' }, items = []
   const server = createServer((req, res) => {
     res.setHeader('content-type', 'application/json')
-    if (req.url.endsWith('/summary')) res.end(JSON.stringify({ userId: 'alice', tasks: [], diary }))
+    if (req.url.endsWith('/summary')) res.end(JSON.stringify({ userId: 'alice', diary }))
     else if (req.url.endsWith('/notifications')) res.end(JSON.stringify({ available: true, items }))
     else if (req.url.endsWith('/scratchpad')) res.end('{"text":""}')
+    else if (req.url.endsWith('/tasks')) res.end('{"items":[]}')
     else res.end('null')
   })
   try {
