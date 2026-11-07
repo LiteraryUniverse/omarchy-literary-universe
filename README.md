@@ -3,8 +3,7 @@
 Capture ideas, manage personal tasks and return to your writing from the Omarchy bar.
 
 **Early access.** This first version requires LU's `/api/companion/v1` backend changes.
-It is not yet listed in the Omarchy marketplace. The implementation is on the
-`feat/companion` branch until its pull request is reviewed and merged.
+It is not yet listed in the Omarchy marketplace.
 
 ![The companion panel with example writing data](docs/panel.png)
 
@@ -23,14 +22,14 @@ Requires Omarchy Quattro with `qs.Commons.Translations`, Node.js 22 or later,
 `util-linux` (`flock`), `libsecret` (`secret-tool`), a running Secret Service,
 `xdg-utils` and `libnotify`. No npm packages or build step are needed.
 
-Once the implementation PR is merged:
+Once the LU companion API is deployed:
 
 ```sh
 omarchy plugin add https://github.com/LiteraryUniverse/omarchy-literary-universe.git
 omarchy plugin enable literaryuniverse.companion
 ```
 
-During review, clone the implementation branch into a separate directory, review
+To test an unmerged PR, clone its head branch into a separate directory, review
 it, then copy that directory to `~/.config/omarchy/plugins/literaryuniverse.companion`.
 Run `omarchy plugin validate` on the directory, rescan with
 `omarchy-shell shell rescanPlugins`, and enable it. Do not overwrite an existing
