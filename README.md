@@ -29,13 +29,13 @@ omarchy plugin add https://github.com/LiteraryUniverse/omarchy-literary-universe
 omarchy plugin enable literaryuniverse.companion
 ```
 
-To test an unmerged PR, clone its head branch into a separate directory, review
-it, then copy that directory to `~/.config/omarchy/plugins/literaryuniverse.companion`.
+To test the latest unpublished version, clone `main` into a separate directory,
+review it, then copy that directory to `~/.config/omarchy/plugins/literaryuniverse.companion`.
 Run `omarchy plugin validate` on the directory, rescan with
 `omarchy-shell shell rescanPlugins`, and enable it. Do not overwrite an existing
 installation or unsynced local data.
 
-Click the book icon and choose **Log in**. Your browser opens LU's OAuth consent
+Click the LU logo and choose **Log in**. Your browser opens LU's OAuth consent
 page. The plugin never asks for your LU password. Authentication requests separate permissions:
 `companion:read` for reminder status and recent writing; `tasks:read` and
 `tasks:write` for personal tasks; `notifications:read` and `notifications:write`
@@ -56,6 +56,18 @@ settings; their hour and timezone come from LU. Refresh runs once a minute while
 Turning off background refresh also turns off desktop reminders until re-enabled.
 The panel still refreshes when opened. Opening notification preferences in LU
 controls the underlying Novu workflows.
+
+## Appearance
+
+The LU logo appears in the bar and panel header. Its silhouette comes from the
+official bundled LU mark; its color follows the bar foreground/active color and
+panel accent. No logo is fetched from the network.
+
+Colors update live with Omarchy's theme. The panel uses the shell's popup
+background and text roles, while controls use its shared accent, borders, focus,
+hover and selection styles. The multiline scratchpad editor uses the same
+control styling as Omarchy's single-line field, including selected text.
+No LU brand colors or Qt default palette are imposed on the desktop.
 
 ## Local testing
 

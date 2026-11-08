@@ -104,7 +104,10 @@ Panel {
     id: button
     anchors.fill: parent
     bar: root.bar
-    text: "󰂺"
+    active: root.opened
+    iconComponent: Component {
+      LuLogo { color: button.active && button.useActiveColor ? button.activeColor : button.foreground }
+    }
     labelText: root.unread ? Commons.I18n.formatNumber(root.unread) + (root.snapshot.notifications.hasMore ? "+" : "") : ""
     tooltipText: "Literary Universe"
     onPressed: root.toggle()
@@ -133,19 +136,20 @@ Panel {
           spacing: Style.spacing.md
           RowLayout {
             Layout.fillWidth: true
+            LuLogo { color: Commons.Color.accent; Layout.preferredWidth: Style.space(28); Layout.preferredHeight: Style.space(28) }
             PlainText { text: "Literary Universe"; font.pixelSize: Style.font.subtitle; Layout.fillWidth: true }
-            Button { text: strings.t("refresh"); focusable: true; enabled: !root.busy; onClicked: root.refresh(false) }
+            Button { foreground: Commons.Color.popups.text; text: strings.t("refresh"); focusable: true; enabled: !root.busy; onClicked: root.refresh(false) }
           }
           PlainText { visible: root.busy; text: strings.t("loading"); Layout.fillWidth: true }
           PlainText { visible: root.errorCode !== ""; text: strings.t("error") + " (" + root.errorCode + ")"; Layout.fillWidth: true }
-          Button { visible: !root.snapshot.signedIn; text: strings.t("login"); focusable: true; enabled: !root.busy; onClicked: root.invoke("login") }
+          Button { foreground: Commons.Color.popups.text; visible: !root.snapshot.signedIn; text: strings.t("login"); focusable: true; enabled: !root.busy; onClicked: root.invoke("login") }
           ColumnLayout {
             visible: root.snapshot.signedIn
             Layout.fillWidth: true
             spacing: Style.spacing.md
-            Button { text: strings.t("continue"); focusable: true; Layout.fillWidth: true; onClicked: root.openPath(root.snapshot.resume ? root.snapshot.resume.path : "/workshop") }
+            Button { foreground: Commons.Color.popups.text; text: strings.t("continue"); focusable: true; Layout.fillWidth: true; onClicked: root.openPath(root.snapshot.resume ? root.snapshot.resume.path : "/workshop") }
             PlainText { visible: !!root.snapshot.resume; text: root.snapshot.resume ? root.snapshot.resume.title : ""; Layout.fillWidth: true }
-            PanelSeparator { Layout.fillWidth: true }
+            PanelSeparator { foreground: Commons.Color.popups.text; Layout.fillWidth: true }
             PlainText { text: strings.t("scratchpad"); font.bold: true }
             PlainText { text: root.snapshot.scratchpad ? root.snapshot.scratchpad.text : ""; maximumLineCount: 4; elide: Text.ElideRight; Layout.fillWidth: true }
             // Omarchy's kit has no multiline editor. Use the Qt control with its palette and spacing.
@@ -155,34 +159,44 @@ Panel {
               Layout.preferredHeight: Style.space(110)
               wrapMode: TextEdit.Wrap
               textFormat: TextEdit.PlainText
-              color: Commons.Color.foreground
-              selectionColor: Commons.Color.accent
+              color: Commons.Color.popups.text
+              selectionColor: Style.selectionFillFor(Commons.Color.popups.text, Commons.Color.accent)
+              selectedTextColor: Commons.Color.popups.text
+              leftPadding: Style.spacing.controlPaddingX + Border.left(captureBorder.borderSpec)
+              rightPadding: Style.spacing.controlPaddingX + Border.right(captureBorder.borderSpec)
+              topPadding: Style.spacing.inputPaddingY + Border.top(captureBorder.borderSpec)
+              bottomPadding: Style.spacing.inputPaddingY + Border.bottom(captureBorder.borderSpec)
               font.family: Style.font.family
               font.pixelSize: Style.font.body
               placeholderText: strings.t("capture")
-              placeholderTextColor: Qt.darker(Commons.Color.foreground, 1.5)
+              placeholderTextColor: Qt.darker(Commons.Color.popups.text, 1.6)
               enabled: !root.snapshot.pending && !(root.busy && root.current.action === "capture")
-              background: Rectangle { color: Commons.Color.background; radius: Style.cornerRadius }
+              background: BorderSurface {
+                id: captureBorder
+                color: Style.controlFill(capture.activeFocus, capture.hovered, Commons.Color.popups.text, Commons.Color.accent)
+                borderSpec: Border.controlSpec(capture.activeFocus ? "focus" : (capture.hovered ? "hover-cursor" : "normal"), Commons.Color.popups.text, Commons.Color.accent)
+                radius: Style.cornerRadius
+              }
               Component.onCompleted: { root.loadingDraft = true; text = root.snapshot.draft || ""; root.loadingDraft = false }
               onTextChanged: if (!root.loadingDraft && root.snapshot.signedIn) { root.dirtyDraft = true; draftTimer.restart() }
               Keys.onPressed: function(event) { if (saveCapture.enabled && event.key === Qt.Key_Return && event.modifiers & Qt.ControlModifier) { saveCapture.clicked(); event.accepted = true } }
               Timer { id: draftTimer; interval: 400; onTriggered: root.invoke("draft", {text: capture.text}) }
             }
             PlainText { visible: !!root.snapshot.pending; text: strings.t("pending"); Layout.fillWidth: true }
-            Button { id: saveCapture; text: strings.t("save"); focusable: true; enabled: !root.busy && capture.text.trim() !== ""; onClicked: { draftTimer.stop(); root.invoke("capture", {text: capture.text}) } }
-            PanelSeparator { Layout.fillWidth: true }
+            Button { foreground: Commons.Color.popups.text; id: saveCapture; text: strings.t("save"); focusable: true; enabled: !root.busy && capture.text.trim() !== ""; onClicked: { draftTimer.stop(); root.invoke("capture", {text: capture.text}) } }
+            PanelSeparator { foreground: Commons.Color.popups.text; Layout.fillWidth: true }
             RowLayout {
               Layout.fillWidth: true
               PlainText { text: strings.t("diary"); font.bold: true; Layout.fillWidth: true }
-              Button { text: strings.t("open"); focusable: true; onClicked: root.openPath("/diary/today") }
-              Button { visible: !!root.snapshot.diary && root.snapshot.diary.due; text: strings.t("snooze"); focusable: true; enabled: !root.busy; onClicked: root.invoke("snooze") }
+              Button { foreground: Commons.Color.popups.text; text: strings.t("open"); focusable: true; onClicked: root.openPath("/diary/today") }
+              Button { foreground: Commons.Color.popups.text; visible: !!root.snapshot.diary && root.snapshot.diary.due; text: strings.t("snooze"); focusable: true; enabled: !root.busy; onClicked: root.invoke("snooze") }
             }
-            PanelSeparator { Layout.fillWidth: true }
+            PanelSeparator { foreground: Commons.Color.popups.text; Layout.fillWidth: true }
             PlainText { text: strings.t("tasks"); font.bold: true }
             RowLayout {
               Layout.fillWidth: true
-              TextField { id: newTask; enabled: !root.busy; onTextEdited: root.taskId = ""; Layout.fillWidth: true; maximumLength: 500; placeholderText: strings.t("tasks") }
-              Button { text: strings.t("add"); focusable: true; enabled: !root.busy && newTask.text.trim() !== ""; onClicked: { root.invoke("taskAdd", { id: root.taskId || (root.taskId = "desktop-" + Date.now() + "-" + Math.random().toString(36).slice(2)), text: newTask.text }) } }
+              TextField { foreground: Commons.Color.popups.text; id: newTask; enabled: !root.busy; onTextEdited: root.taskId = ""; Layout.fillWidth: true; maximumLength: 500; placeholderText: strings.t("tasks") }
+              Button { foreground: Commons.Color.popups.text; text: strings.t("add"); focusable: true; enabled: !root.busy && newTask.text.trim() !== ""; onClicked: { root.invoke("taskAdd", { id: root.taskId || (root.taskId = "desktop-" + Date.now() + "-" + Math.random().toString(36).slice(2)), text: newTask.text }) } }
             }
             Repeater {
               model: root.snapshot.tasks || []
@@ -190,11 +204,11 @@ Panel {
                 required property var modelData
                 Layout.fillWidth: true
                 PlainText { text: modelData.title + (modelData.dueDate ? " · " + modelData.dueDate : ""); Layout.fillWidth: true }
-                Button { text: strings.t("done"); focusable: true; enabled: !root.busy; onClicked: root.invoke("taskComplete", {id: modelData.id, version: modelData.version}) }
+                Button { foreground: Commons.Color.popups.text; text: strings.t("done"); focusable: true; enabled: !root.busy; onClicked: root.invoke("taskComplete", {id: modelData.id, version: modelData.version}) }
               }
             }
-            PanelSeparator { Layout.fillWidth: true }
-            Button { text: strings.t("notifications"); focusable: true; onClicked: root.openPath("/user/notifications") }
+            PanelSeparator { foreground: Commons.Color.popups.text; Layout.fillWidth: true }
+            Button { foreground: Commons.Color.popups.text; text: strings.t("notifications"); focusable: true; onClicked: root.openPath("/user/notifications") }
             PlainText { visible: !!root.snapshot.notifications && !root.snapshot.notifications.available; text: strings.t("unavailable"); Layout.fillWidth: true }
             Repeater {
               model: root.snapshot.notifications ? root.snapshot.notifications.items : []
@@ -202,15 +216,15 @@ Panel {
                 required property var modelData
                 Layout.fillWidth: true
                 PlainText { text: modelData.title; font.bold: !modelData.read; Layout.fillWidth: true; maximumLineCount: 3; elide: Text.ElideRight }
-                Button { text: strings.t("open"); focusable: true; onClicked: root.openPath(modelData.path) }
-                Button { visible: !modelData.read; text: strings.t("read"); focusable: true; enabled: !root.busy; onClicked: root.invoke("read", {id: modelData.id}) }
+                Button { foreground: Commons.Color.popups.text; text: strings.t("open"); focusable: true; onClicked: root.openPath(modelData.path) }
+                Button { foreground: Commons.Color.popups.text; visible: !modelData.read; text: strings.t("read"); focusable: true; enabled: !root.busy; onClicked: root.invoke("read", {id: modelData.id}) }
               }
             }
-            PanelSeparator { Layout.fillWidth: true }
+            PanelSeparator { foreground: Commons.Color.popups.text; Layout.fillWidth: true }
             PlainText { text: strings.t("blog"); font.bold: true }
             PlainText { text: root.snapshot.article ? root.snapshot.article.title : strings.t("unavailable"); Layout.fillWidth: true }
-            Button { visible: !!root.snapshot.article; text: strings.t("open"); focusable: true; onClicked: root.openPath(root.snapshot.article.path) }
-            Button { text: strings.t("logout"); focusable: true; enabled: !root.busy && !root.dirtyDraft; onClicked: root.invoke("logout") }
+            Button { foreground: Commons.Color.popups.text; visible: !!root.snapshot.article; text: strings.t("open"); focusable: true; onClicked: root.openPath(root.snapshot.article.path) }
+            Button { foreground: Commons.Color.popups.text; text: strings.t("logout"); focusable: true; enabled: !root.busy && !root.dirtyDraft; onClicked: root.invoke("logout") }
           }
         }
       }
