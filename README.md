@@ -10,10 +10,11 @@ It is not yet listed in the Omarchy marketplace.
 ## Features
 
 - **Scratchpad:** read your latest notes and append a quick capture without replacing existing rich formatting. Draft capture text saves locally as you type. Interrupted submissions retain their operation ID for safe retry.
-- **Diary:** open today's entry and receive an optional daily desktop reminder using your LU reminder timezone and hour. Snooze for 30 minutes. Completed days are not reminded.
+- **Diary:** start or continue today's and yesterday's entries and receive an optional daily desktop reminder using your LU reminder timezone and hour. Snooze for 30 minutes. Completed days are not reminded.
 - **Todos:** add and complete personal tasks using LU's task permissions and subscription rules. The panel shows up to 100 unfinished tasks, ordered by due date.
 - **Continue writing:** return to the last story or universe in your LU writing history, using the same destination as your dashboard.
-- **Notifications:** see up to 20 unread Novu notifications, open their destinations and mark them read. Optional message and release banners respect desktop Do Not Disturb. `20+` means more unread notifications are available on the website.
+- **Notifications:** see the latest three Novu notifications, open their destinations and mark them read. The bar badge counts unread items among these three. Optional message and release banners respect desktop Do Not Disturb.
+- **Account:** see the signed-in username and open its menu to log out.
 - **LU blog:** show the latest published article from LU's configured official blog.
 
 ## Installation

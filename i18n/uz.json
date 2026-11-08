@@ -18,5 +18,6 @@
   "capture": "Qayd va g‘oyalaringizga saytning istalgan joyidan kirishingiz mumkin.",
   "pending": "Kutilmoqda",
   "unavailable": "Mavjud emas",
-  "snooze": "30′"
+  "snooze": "30′",
+  "start": "Yozishni boshlash"
 }
