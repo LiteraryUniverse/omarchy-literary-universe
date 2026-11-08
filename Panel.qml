@@ -111,7 +111,7 @@ Panel {
     iconComponent: Component {
       LuLogo { color: button.active && button.useActiveColor ? button.activeColor : button.foreground }
     }
-    labelText: root.unread ? Commons.I18n.formatNumber(root.unread) + (root.snapshot.notifications.hasMore ? "+" : "") : ""
+    labelText: root.unread ? Commons.I18n.formatNumber(root.unread) : ""
     tooltipText: "Literary Universe"
     onPressed: root.toggle()
   }
