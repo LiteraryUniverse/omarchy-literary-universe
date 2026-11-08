@@ -3,8 +3,7 @@
 Capture ideas, manage personal tasks and return to your writing from the Omarchy bar.
 
 **Early access.** This first version requires LU's `/api/companion/v1` backend changes.
-It is not yet listed in the Omarchy marketplace. The implementation is on the
-`feat/companion` branch until its pull request is reviewed and merged.
+It is not yet listed in the Omarchy marketplace.
 
 ![The companion panel with example writing data](docs/panel.png)
 
@@ -23,26 +22,26 @@ Requires Omarchy Quattro with `qs.Commons.Translations`, Node.js 22 or later,
 `util-linux` (`flock`), `libsecret` (`secret-tool`), a running Secret Service,
 `xdg-utils` and `libnotify`. No npm packages or build step are needed.
 
-Once the implementation PR is merged:
+Once the LU companion API is deployed:
 
 ```sh
 omarchy plugin add https://github.com/LiteraryUniverse/omarchy-literary-universe.git
 omarchy plugin enable literaryuniverse.companion
 ```
 
-During review, clone the implementation branch into a separate directory, review
+To test an unmerged PR, clone its head branch into a separate directory, review
 it, then copy that directory to `~/.config/omarchy/plugins/literaryuniverse.companion`.
 Run `omarchy plugin validate` on the directory, rescan with
 `omarchy-shell shell rescanPlugins`, and enable it. Do not overwrite an existing
 installation or unsynced local data.
 
 Click the book icon and choose **Log in**. Your browser opens LU's OAuth consent
-page. The plugin never asks for your LU password. Authentication needs all four
-permissions: `companion:read`, `companion:write`, `scratchpad:read`, and
-`scratchpad:write`. LU issues rotating refresh tokens for this public client.
-The companion permission
-covers tasks, reminder status, recent writing and notifications; it does not
-expose diary entry text. Work-restricted and organization credentials are refused.
+page. The plugin never asks for your LU password. Authentication requests separate permissions:
+`companion:read` for reminder status and recent writing; `tasks:read` and
+`tasks:write` for personal tasks; `notifications:read` and `notifications:write`
+for the inbox and read state; and `scratchpad:read` and `scratchpad:write` for
+notes. LU issues rotating refresh tokens for this public client. Diary entry
+text is not exposed. Work-restricted and organization credentials are refused.
 
 The panel uses Tab to move between controls, Escape to close and Ctrl+Enter to
 submit a capture. This command can be assigned to your preferred keyboard shortcut:

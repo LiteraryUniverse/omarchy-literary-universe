@@ -33,7 +33,7 @@ export async function run(input, base = baseUrl(process.env.LU_COMPANION_URL)) {
     const token = await accessToken(base)
     const api = (path, json) => request(`${base}/api/companion/v1${path}`, { token, method: json ? 'POST' : 'GET', json })
     const summary = await api('/summary')
-    if (typeof summary.userId !== 'string' || !Array.isArray(summary.tasks)) throw new ApiError('response')
+    if (typeof summary.userId !== 'string') throw new ApiError('response')
     const userId = summary.userId
     const draft = state.drafts[userId] || { id: randomUUID(), text: '' }
     if (input.action !== 'refresh' && input.userId !== userId) throw new ApiError('account_changed')
@@ -57,16 +57,16 @@ export async function run(input, base = baseUrl(process.env.LU_COMPANION_URL)) {
       state.snooze = { userId, until: Date.now() + 30 * 60000 }
       state.diaryShown = null
     }
-    const currentSummary = ['taskAdd', 'taskComplete'].includes(input.action) ? await api('/summary') : summary
     // A Novu outage must not make notes or tasks unusable.
-    const values = await Promise.allSettled([api('/scratchpad'), api('/notifications'), api('/article')])
+    const values = await Promise.allSettled([api('/scratchpad'), api('/notifications'), api('/article'), api('/tasks')])
     const errors = []
     const value = (index, key, fallback) => { if (values[index].status === 'fulfilled') return values[index].value; errors.push(key); return fallback }
     const scratchpad = value(0, 'scratchpad', null)
     const notifications = value(1, 'notifications', { available: false, items: [] })
     const article = value(2, 'article', state.article || null)
+    const tasks = value(3, 'tasks', { items: [] })
     if (values[2].status === 'fulfilled') state.article = article
-    const snapshot = { signedIn: true, ...currentSummary, scratchpad, notifications, article, draft: state.drafts[userId]?.text || '', pending: Boolean(state.drafts[userId]?.pending), errors, retryAfter: Math.max(0, ...values.filter(v => v.status === 'rejected').map(v => v.reason.retryAfter || 0)) }
+    const snapshot = { signedIn: true, ...summary, tasks: tasks.items, scratchpad, notifications, article, draft: state.drafts[userId]?.text || '', pending: Boolean(state.drafts[userId]?.pending), errors, retryAfter: Math.max(0, ...values.filter(v => v.status === 'rejected').map(v => v.reason.retryAfter || 0)) }
     if (input.background === true) {
       const prefs = input.preferences || {}
       const previous = state.notifications?.userId === userId ? state.notifications : null

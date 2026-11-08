@@ -7,13 +7,19 @@ authentication, scopes and rate limits before parsing a body.
 
 | Method and path | Scope | Result / request |
 | --- | --- | --- |
-| GET `/api/companion/v1/summary` | `companion:read` | `userId`, `resume` (`title`, internal `path`), unfinished `tasks` (`id`, `title`, `version`, optional `dueDate`), `diary` (`date`, `due`, `complete`) |
+| GET `/api/companion/v1/summary` | `companion:read` | `userId`, `resume` (`title`, internal `path`), `diary` (`date`, `due`, `complete`) |
 | GET `/api/companion/v1/scratchpad` | `scratchpad:read` | Last 20,000 characters as `text`, `updatedAt` |
 | POST `/api/companion/v1/capture` | `scratchpad:write` | `{id: UUID, text}`; append up to 20,000 characters, preserve formatting, deduplicate the latest 100 capture IDs |
-| POST `/api/companion/v1/tasks` | `companion:write` | `add` with `itemId` and `fields.title`, or `complete` with `itemId`, `version`, `completed`; the server assigns the personal list |
-| GET `/api/companion/v1/notifications` | `companion:read` | `available`, `items` (`id`, `title`, `read`, `createdAt`, `category`, internal `path`), `hasMore` |
-| POST `/api/companion/v1/notifications/read` | `companion:write` | `{id}`; subscriber identity is derived on the server |
+| GET `/api/companion/v1/tasks` | `tasks:read` | `items`: up to 100 unfinished personal tasks (`id`, `title`, `version`, optional `dueDate`) |
+| POST `/api/companion/v1/tasks` | `tasks:write` | `add` with `itemId` and `fields.title`, or `complete` with `itemId`, `version`, `completed`; the server assigns the personal list |
+| GET `/api/companion/v1/notifications` | `notifications:read` | `available`, `items` (`id`, `title`, `read`, `createdAt`, `category`, internal `path`), `hasMore` |
+| POST `/api/companion/v1/notifications/read` | `notifications:write` | `{id}`; subscriber identity is derived on the server |
 | GET `/api/companion/v1/article` | `companion:read` | Latest official blog article (`title`, `publishedAt`, internal `path`) or null |
+
+Each permission is independent: read does not imply write, and write does not
+imply read. A task-sync client such as a future Todoist integration can request
+only `tasks:read tasks:write`; it cannot read notifications, writing activity,
+reminder status or scratchpad data. The summary endpoint never reads tasks.
 
 `401` requires sign-in; `403` means permission, account type, restrictions or task
 subscription; `409` means a version conflict; `429` supplies `Retry-After`; `503`
