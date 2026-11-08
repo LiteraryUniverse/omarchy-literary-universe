@@ -49,7 +49,7 @@ test('public client uses supported scopes and PKCE, rotates refresh tokens and r
   })
   try {
     await mkdir(join(dir, 'bin'))
-    await writeFile(join(dir, 'bin/secret-tool'), `#!/usr/bin/env node\nconst fs=require('fs'),p=${JSON.stringify(join(dir, 'credential'))};switch(process.argv[2]){case '--help':break;case 'lookup':process.stdout.write(fs.readFileSync(p));break;case 'store':fs.writeFileSync(p,fs.readFileSync(0),{mode:0o600});break;case 'clear':fs.rmSync(p);break}\n`, { mode: 0o700 })
+    await writeFile(join(dir, 'bin/secret-tool'), `#!/usr/bin/env node\nconst fs=require('fs'),p=${JSON.stringify(join(dir, 'credential'))};switch(process.argv[2]){case '--help':process.stderr.write('usage: secret-tool store|lookup|clear\\n');process.exitCode=2;break;case 'lookup':process.stdout.write(fs.readFileSync(p));break;case 'store':fs.writeFileSync(p,fs.readFileSync(0),{mode:0o600});break;case 'clear':fs.rmSync(p);break}\n`, { mode: 0o700 })
     await writeFile(join(dir, 'bin/xdg-open'), '#!/usr/bin/env node\nfetch(process.argv[2]).then(r=>{if(!r.ok)process.exitCode=1}).catch(()=>{process.exitCode=1})\n', { mode: 0o700 })
     process.env.PATH = `${dir}/bin:${oldPath}`
     await new Promise(resolve => server.listen(0, '127.0.0.1', resolve))
@@ -65,6 +65,24 @@ test('public client uses supported scopes and PKCE, rotates refresh tokens and r
     assert.ok(revoked)
     await assert.rejects(keyring(base), /signed_out/)
     assert.deepEqual(failures, [])
+  } finally {
+    process.env.PATH = oldPath
+    server.closeAllConnections(); await new Promise(resolve => server.close(resolve))
+    await rm(dir, { recursive: true, force: true })
+  }
+})
+
+
+test('login fails before OAuth when secret-tool is missing', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'lu-no-keyring-'))
+  const oldPath = process.env.PATH
+  let requests = 0
+  const server = createServer((req, res) => { requests++; res.writeHead(500).end() })
+  try {
+    process.env.PATH = dir
+    await new Promise(resolve => server.listen(0, '127.0.0.1', resolve))
+    await assert.rejects(login(`http://127.0.0.1:${server.address().port}`), { code: 'keyring' })
+    assert.equal(requests, 0)
   } finally {
     process.env.PATH = oldPath
     server.closeAllConnections(); await new Promise(resolve => server.close(resolve))

@@ -40,8 +40,11 @@ export function callbackHandler(state, settle) {
   }
 }
 export async function login(base) {
-  // Fail before opening the browser if the Secret Service tool is missing.
-  await exec('secret-tool', ['--help'], { timeout: 5000 }).catch(() => { throw new ApiError('keyring') })
+  // secret-tool prints usage and exits 2 for --help. That still proves it runs.
+  // Fail before opening the browser for missing/broken tools or a timeout.
+  await exec('secret-tool', ['--help'], { timeout: 5000 }).catch((error) => {
+    if (error.code !== 2) throw new ApiError('keyring')
+  })
   const metadata = await discover(base)
   const state = randomBytes(32).toString('base64url'), verifier = randomBytes(32).toString('base64url')
   let settle
