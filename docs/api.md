@@ -26,7 +26,7 @@ type, restrictions or task subscription; `404` means the task no longer exists;
 `409` means a version conflict; `413` means the content is too large; `422` means
 LU refused the change (task limit, unavailable task link, or a legacy scratchpad
 that must be opened on the web first); `429` supplies `Retry-After`; `503` means
-unavailable. Error bodies carry the same `error` code as before. The plugin preserves pending captures on uncertain failure
+unavailable. The body's `error` field names the specific reason. The plugin preserves pending captures on uncertain failure
 and retries the same ID/text. It never automatically replays a write.
 
 Only the helper sees access/refresh tokens. QML sends bounded JSON commands over
