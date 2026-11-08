@@ -7,12 +7,12 @@ authentication, scopes and rate limits before parsing a body.
 
 | Method and path | Scope | Result / request |
 | --- | --- | --- |
-| GET `/api/companion/v1/summary` | `companion:read` | `userId`, `resume` (`title`, internal `path`), `diary` (`date`, `due`, `complete`) |
-| GET `/api/companion/v1/scratchpad` | `scratchpad:read` | Last 20,000 characters as `text`, `updatedAt` |
+| GET `/api/companion/v1/summary` | `companion:read` | `userId`, `account.username`, `resume` (`title`, internal `path`, HTTPS `cover` or null), `diary` (`date`, `due`, `complete`, `entries`: today and yesterday with `date`, internal `path`, `started`) |
+| GET `/api/companion/v1/scratchpad` | `scratchpad:read` | Last 20,000 characters as `text`, `updatedAt`; derives missing text from rich documents or legacy HTML |
 | POST `/api/companion/v1/capture` | `scratchpad:write` | `{id: UUID, text}`; append up to 20,000 characters, preserve formatting, deduplicate the latest 100 capture IDs |
 | GET `/api/companion/v1/tasks` | `tasks:read` | `items`: up to 100 unfinished personal tasks (`id`, `title`, `version`, optional `dueDate`) |
 | POST `/api/companion/v1/tasks` | `tasks:write` | `add` with `itemId` and `fields.title`, or `complete` with `itemId`, `version`, `completed`; the server assigns the personal list |
-| GET `/api/companion/v1/notifications` | `notifications:read` | `available`, `items` (`id`, `title`, `read`, `createdAt`, `category`, internal `path`), `hasMore` |
+| GET `/api/companion/v1/notifications` | `notifications:read` | `available`, latest three non-archived, non-snoozed `items`, including read items (`id`, `title`, `read`, `createdAt`, `category`, internal `path`), `hasMore` |
 | POST `/api/companion/v1/notifications/read` | `notifications:write` | `{id}`; subscriber identity is derived on the server |
 | GET `/api/companion/v1/article` | `companion:read` | Latest official blog article (`title`, `publishedAt`, internal `path`) or null |
 
@@ -33,3 +33,5 @@ Only the helper sees access/refresh tokens. QML sends bounded JSON commands over
 stdin and receives bounded JSON UI state. Local file locking serializes token
 rotation and state writes across shell instances. Redirects are refused on API
 requests. Browser destinations stay on the selected LU origin.
+
+Diary dates follow the web diary’s UTC calendar. Reminder hours use the user’s configured reminder timezone. The Novu `@novu/api` SDK stays on the LU server, so no Novu API key or subscriber credentials are exposed to the shell. Deploy the companion API additions before updating the plugin.
