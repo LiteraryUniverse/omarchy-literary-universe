@@ -49,7 +49,7 @@ base=$(head -1 "$work/server")
 
 # Same stop as omarchy-restart-shell: kill until none answers, then wait for teardown (-n refuses a second instance).
 while timeout 30 quickshell kill -p "$config" --any-display >/dev/null 2>&1; do :; done
-for _ in $(seq 300); do quickshell list -a -j 2>/dev/null | jq -e --arg d "$config/" 'any(.[]; .config_path | startswith($d))' >/dev/null || break; sleep 0.1; done
+for _ in $(seq 300); do quickshell list -a -j 2>/dev/null | jq -e --arg d "$config/" 'any(.[]; .config_path | startswith($d))' >/dev/null 2>&1 || break; sleep 0.1; done
 if [[ -e $plugin ]]; then mv -- "$plugin" "$work/installed"; moved=1; fi
 mkdir -- "$plugin"; created=1
 git -C "$repo" archive HEAD | tar -x -C "$plugin"
@@ -66,9 +66,8 @@ for _ in $(seq 100); do grep -qx /article "$work/requests" 2>/dev/null && break;
 grep -qx /article "$work/requests" || { echo "The panel never refreshed from the fixtures" >&2; exit 1; }
 sleep 1 # let the panel grow to fit the loaded content
 
-hyprctl layers -j >"$work/layers.json"
-monitor=$(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name')
-geometry=$(jq -r --arg m "$monitor" '.[$m].levels[][] | select(.namespace | test("keyboard|panel|popup"; "i")) | "\(.x),\(.y) \(.w)x\(.h)"' "$work/layers.json" | tail -1)
-[[ -n ${DEMO_DEBUG:-} ]] && { cp "$work/layers.json" "$DEMO_DEBUG/"; grim -o "$monitor" "$DEMO_DEBUG/full.png"; }
-if [[ -n $geometry ]]; then grim -g "$geometry" "$out"; else grim -o "$monitor" "$out"; fi
-echo "Captured $out ($monitor ${geometry:-full output})"
+# The panel is a full-screen layer; it opens under the widget in the bar's right section.
+read -r monitor geometry < <(hyprctl monitors -j | jq -r '.[] | select(.focused) |
+  "\(.name) \(.x + (.width / .scale | floor) - 470),\(.y) 470x770"')
+grim -g "$geometry" "$out"
+echo "Captured $out ($monitor $geometry)"
