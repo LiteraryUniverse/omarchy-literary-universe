@@ -1,0 +1,21 @@
+{
+  "/summary": {
+    "userId": "demo-user",
+    "account": { "username": "mira.vale" },
+    "resume": { "title": "The Cartographer's Promise", "path": "/workshop", "cover": null },
+    "diary": { "date": "{today}", "due": true, "complete": false, "entries": [
+      { "date": "{today}", "path": "/diary", "started": false },
+      { "date": "{yesterday}", "path": "/diary", "started": true }
+    ] }
+  },
+  "/scratchpad": { "text": "The city moves one street east every night. Who keeps redrawing the map?", "updatedAt": "{now}" },
+  "/tasks": { "items": [
+    { "id": "t1", "title": "Finish the observatory scene", "version": 1, "dueDate": "{today}" },
+    { "id": "t2", "title": "Send chapter 12 to beta readers", "version": 1 }
+  ] },
+  "/notifications": { "available": true, "hasMore": false, "items": [
+    { "id": "n1", "title": "A new chapter of The Last Lighthouse is out", "read": false, "createdAt": "{now}", "category": "new-chapter", "path": "/" },
+    { "id": "n2", "title": "Juno commented on Chapter 3", "read": true, "createdAt": "{now}", "category": "comment", "path": "/" }
+  ] },
+  "/article": { "title": "Making time for your next story", "publishedAt": "{now}", "path": "/" }
+}
