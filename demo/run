@@ -26,19 +26,19 @@ work=$(mktemp -d "${XDG_RUNTIME_DIR:-/tmp}/lu-demo.XXXXXX")
 workspace=$(hyprctl activeworkspace -j | jq -r .id)
 moved=0 created=0 server=""
 
-restore() {
+cleanup() {
   local status=$?
   set +e
   [[ -n $server ]] && kill "$server" 2>/dev/null
   if (( created )); then rm -rf -- "$plugin"; fi
-  if (( moved )); then mv -- "$work/installed" "$plugin" || { echo "Installed plugin left at $work/installed" >&2; exit 1; }; fi
+  if (( moved )); then mv -- "$work/backup" "$plugin" || { echo "Installed plugin left at $work/backup" >&2; exit 1; }; fi
   omarchy-restart-shell || echo "Run omarchy restart shell" >&2
   hyprctl dispatch "hl.dsp.focus({ workspace = \"$workspace\" })" >/dev/null
   [[ -n ${base:-} ]] && rm -rf -- "$(node --input-type=module -e "import { stateDirectory } from '$repo/src/state.mjs'; console.log(stateDirectory('$base'))")"
   if (( status == 0 )); then rm -rf -- "$work"; else echo "Demo failed; logs in $work" >&2; fi
   exit "$status"
 }
-trap restore EXIT
+trap cleanup EXIT
 trap 'exit 130' INT TERM HUP
 
 node "$repo/demo/server.mjs" "$work/requests" >"$work/server" &
@@ -50,7 +50,7 @@ base=$(head -1 "$work/server")
 # Same stop as omarchy-restart-shell: kill until none answers, then wait for teardown (-n refuses a second instance).
 while timeout 30 quickshell kill -p "$config" --any-display >/dev/null 2>&1; do :; done
 for _ in $(seq 300); do quickshell list -a -j 2>/dev/null | jq -e --arg d "$config/" 'any(.[]; .config_path | startswith($d))' >/dev/null 2>&1 || break; sleep 0.1; done
-if [[ -e $plugin ]]; then mv -- "$plugin" "$work/installed"; moved=1; fi
+if [[ -e $plugin ]]; then mv -- "$plugin" "$work/backup"; moved=1; fi
 mkdir -- "$plugin"; created=1
 git -C "$repo" archive HEAD | tar -x -C "$plugin"
 

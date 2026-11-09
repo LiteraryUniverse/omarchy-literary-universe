@@ -24,7 +24,7 @@ It also uses `util-linux` (`flock`), `libsecret` (`secret-tool`) with a running
 Secret Service such as GNOME Keyring, `xdg-utils` (`xdg-open`) and `libnotify`
 (`notify-send`). No npm packages, build step or installation hooks are used.
 
-If Node.js is missing, install it with `mise use -g node@22` or `sudo pacman -S nodejs`.
+Check with `node --version` and install Node.js 22 or later if it is missing.
 
 ## Installation
 
