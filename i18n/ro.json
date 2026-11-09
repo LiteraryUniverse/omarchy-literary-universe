@@ -19,5 +19,7 @@
   "pending": "În așteptare",
   "unavailable": "Indisponibil",
   "snooze": "30′",
-  "start": "Începe să scrii"
+  "start": "Începe să scrii",
+  "messageBanner": "Mesaj nou",
+  "releaseBanner": "Capitol nou sau actualizare"
 }

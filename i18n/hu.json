@@ -19,5 +19,7 @@
   "pending": "Függőben",
   "unavailable": "Nem elérhető",
   "snooze": "30′",
-  "start": "Írás elkezdése"
+  "start": "Írás elkezdése",
+  "messageBanner": "Új üzenet",
+  "releaseBanner": "Új fejezet vagy frissítés"
 }

@@ -19,5 +19,7 @@
   "pending": "অপেক্ষমাণ",
   "unavailable": "উপলব্ধ নয়",
   "snooze": "30′",
-  "start": "লেখা শুরু করুন"
+  "start": "লেখা শুরু করুন",
+  "messageBanner": "নতুন বার্তা",
+  "releaseBanner": "নতুন অধ্যায় বা আপডেট"
 }

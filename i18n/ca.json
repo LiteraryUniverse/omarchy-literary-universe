@@ -19,5 +19,7 @@
   "pending": "Pendent",
   "unavailable": "No disponible",
   "snooze": "30′",
-  "start": "Comença a escriure"
+  "start": "Comença a escriure",
+  "messageBanner": "Missatge nou",
+  "releaseBanner": "Capítol nou o actualització"
 }

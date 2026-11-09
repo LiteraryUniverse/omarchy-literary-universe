@@ -45,11 +45,12 @@ Panel {
     current = queue[0]
     queue = queue.slice(1)
     errorCode = ""
+    bridge.stdinEnabled = true
     bridge.running = true
   }
   function refresh(background) {
     if (Date.now() < nextRefresh) return
-    invoke("refresh", {background: background, diaryLabel: strings.t("diary"), preferences: {
+    invoke("refresh", {background: background, diaryLabel: strings.t("diary"), messageLabel: strings.t("messageBanner"), releaseLabel: strings.t("releaseBanner"), preferences: {
       diary: setting("diaryReminders", false), messages: setting("messageBanners", false), releases: setting("releaseBanners", false)
     }})
   }
@@ -90,7 +91,7 @@ Panel {
     id: bridge
     command: ["node", Qt.resolvedUrl("src/bridge.mjs").toString().replace(/^file:\/\//, "")]
     stdinEnabled: true
-    onStarted: write(JSON.stringify(root.current) + "\n")
+    onStarted: { write(JSON.stringify(root.current) + "\n"); stdinEnabled = false }
     stdout: SplitParser { onRead: function(line) { root.apply(line) } }
     onExited: Qt.callLater(root.pump)
   }
@@ -167,11 +168,11 @@ Panel {
             }
             RowLayout {
               Layout.fillWidth: true
-              // Qt Image is needed for remote covers; the shell kit has no cover component.
+              // The helper downloads and checks covers; this only shows its private local copy.
               Image {
                 Layout.preferredWidth: Style.space(54)
                 Layout.preferredHeight: Style.space(81)
-                source: root.snapshot.resume && root.snapshot.resume.cover ? root.snapshot.resume.cover : ""
+                source: root.snapshot.resume && /^file:\/\//.test(root.snapshot.resume.cover || "") ? root.snapshot.resume.cover : ""
                 sourceSize.width: Style.space(108)
                 sourceSize.height: Style.space(162)
                 fillMode: Image.PreserveAspectFit

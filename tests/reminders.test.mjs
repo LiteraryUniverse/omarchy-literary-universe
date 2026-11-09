@@ -27,7 +27,7 @@ test('reminders honor opt-in, daily deduplication and snooze; notification banne
     await new Promise(resolve => server.listen(0, '127.0.0.1', resolve))
     const base = `http://127.0.0.1:${server.address().port}`
     const banners = async () => (await readFile(join(dir, 'banners'), 'utf8').catch(() => '')).trim().split('\n').filter(Boolean).map(JSON.parse)
-    const refresh = preferences => run({ action: 'refresh', background: true, preferences, diaryLabel: 'Deník' }, base)
+    const refresh = preferences => run({ action: 'refresh', background: true, preferences, diaryLabel: 'Deník', messageLabel: '<b>Zpráva</b>' }, base)
     await refresh({})
     assert.equal((await banners()).length, 0)
     await refresh({ diary: true })
@@ -46,7 +46,9 @@ test('reminders honor opt-in, daily deduplication and snooze; notification banne
     await refresh({ diary: true, messages: true })
     await refresh({ diary: true, messages: true })
     assert.equal((await banners()).length, 3)
-    assert.equal((await banners())[2].at(-1), '&lt;b&gt;Message&lt;/b&gt;')
+    // Banners carry the fixed UI label; LU text never reaches notify-send's argv.
+    assert.equal((await banners())[2].at(-1), '&lt;b&gt;Zpráva&lt;/b&gt;')
+    assert.ok(!JSON.stringify(await banners()).includes('Message'))
     items.unshift({ id: 'release', category: 'new-chapter', createdAt: new Date().toISOString(), title: 'New chapter' })
     await refresh({ messages: true, releases: false })
     await refresh({ messages: true, releases: true })

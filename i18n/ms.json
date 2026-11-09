@@ -19,5 +19,7 @@
   "pending": "Menunggu",
   "unavailable": "Tidak tersedia",
   "snooze": "30′",
-  "start": "Mula menulis"
+  "start": "Mula menulis",
+  "messageBanner": "Mesej baharu",
+  "releaseBanner": "Bab baharu atau kemas kini"
 }

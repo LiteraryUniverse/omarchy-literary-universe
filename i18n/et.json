@@ -19,5 +19,7 @@
   "pending": "Ootel",
   "unavailable": "Pole saadaval",
   "snooze": "30′",
-  "start": "Alusta kirjutamist"
+  "start": "Alusta kirjutamist",
+  "messageBanner": "Uus sõnum",
+  "releaseBanner": "Uus peatükk või uuendus"
 }

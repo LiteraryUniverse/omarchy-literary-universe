@@ -19,5 +19,7 @@
   "pending": "Venter",
   "unavailable": "Ikke tilgjengelig",
   "snooze": "30′",
-  "start": "Begynn å skrive"
+  "start": "Begynn å skrive",
+  "messageBanner": "Ny melding",
+  "releaseBanner": "Nytt kapittel eller oppdatering"
 }

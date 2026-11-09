@@ -19,5 +19,7 @@
   "pending": "Afventer",
   "unavailable": "Ikke tilgængelig",
   "snooze": "30′",
-  "start": "Begynd at skrive"
+  "start": "Begynd at skrive",
+  "messageBanner": "Ny besked",
+  "releaseBanner": "Nyt kapitel eller opdatering"
 }

@@ -19,5 +19,7 @@
   "pending": "Vireillä",
   "unavailable": "Ei saatavilla",
   "snooze": "30′",
-  "start": "Aloita kirjoittaminen"
+  "start": "Aloita kirjoittaminen",
+  "messageBanner": "Uusi viesti",
+  "releaseBanner": "Uusi luku tai päivitys"
 }

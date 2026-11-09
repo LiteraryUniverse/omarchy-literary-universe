@@ -19,5 +19,7 @@
   "pending": "Ar feitheamh",
   "unavailable": "Níl sé ar fáil",
   "snooze": "30′",
-  "start": "Tosaigh ag scríobh"
+  "start": "Tosaigh ag scríobh",
+  "messageBanner": "Teachtaireacht nua",
+  "releaseBanner": "Caibidil nua nó nuashonrú"
 }

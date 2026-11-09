@@ -19,5 +19,7 @@
   "pending": "Laukiama",
   "unavailable": "Neprieinama",
   "snooze": "30′",
-  "start": "Pradėti rašyti"
+  "start": "Pradėti rašyti",
+  "messageBanner": "Nauja žinutė",
+  "releaseBanner": "Naujas skyrius arba atnaujinimas"
 }

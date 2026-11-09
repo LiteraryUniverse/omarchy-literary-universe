@@ -19,5 +19,7 @@
   "pending": "W toku",
   "unavailable": "Niedostępne",
   "snooze": "30′",
-  "start": "Zacznij pisać"
+  "start": "Zacznij pisać",
+  "messageBanner": "Nowa wiadomość",
+  "releaseBanner": "Nowy rozdział lub aktualizacja"
 }

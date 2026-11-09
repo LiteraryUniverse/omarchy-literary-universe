@@ -19,5 +19,7 @@
   "pending": "Pending",
   "unavailable": "Not available",
   "snooze": "30′",
-  "start": "Start writing"
+  "start": "Start writing",
+  "messageBanner": "New message",
+  "releaseBanner": "New chapter or update"
 }

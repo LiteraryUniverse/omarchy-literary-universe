@@ -19,5 +19,7 @@
   "pending": "लंबित",
   "unavailable": "उपलब्ध नहीं",
   "snooze": "30′",
-  "start": "लिखना शुरू करें"
+  "start": "लिखना शुरू करें",
+  "messageBanner": "नया संदेश",
+  "releaseBanner": "नया अध्याय या अपडेट"
 }

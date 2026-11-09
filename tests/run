@@ -1,0 +1,6 @@
+#!/bin/sh
+# Portable checks: no Omarchy, display or network needed.
+set -eu
+cd "$(dirname "$0")/.."
+for file in src/*.mjs; do node --check "$file"; done
+node --test tests/*.test.mjs
