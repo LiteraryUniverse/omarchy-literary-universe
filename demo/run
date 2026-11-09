@@ -47,7 +47,9 @@ for _ in $(seq 50); do [[ -s $work/server ]] && break; sleep 0.1; done
 base=$(head -1 "$work/server")
 [[ $base == http://127.0.0.1:* ]] || { echo "Fixture server did not start" >&2; exit 1; }
 
-quickshell kill -p "$config" --any-display >/dev/null 2>&1 || true
+# Same stop as omarchy-restart-shell: kill until none answers, then wait for teardown (-n refuses a second instance).
+while timeout 30 quickshell kill -p "$config" --any-display >/dev/null 2>&1; do :; done
+for _ in $(seq 300); do quickshell list -a -j 2>/dev/null | jq -e --arg d "$config/" 'any(.[]; .config_path | startswith($d))' >/dev/null || break; sleep 0.1; done
 if [[ -e $plugin ]]; then mv -- "$plugin" "$work/installed"; moved=1; fi
 mkdir -- "$plugin"; created=1
 git -C "$repo" archive HEAD | tar -x -C "$plugin"
