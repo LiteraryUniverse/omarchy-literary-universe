@@ -94,6 +94,10 @@ omarchy plugin validate .
 printf '%s\n' '{"action":"refresh"}' | LU_COMPANION_URL=http://localhost:4200 node src/bridge.mjs
 ```
 
+`demo/run` retakes `preview.png` from fictional fixtures. It stops the running
+shell for about half a minute, loads this checkout's `HEAD` in a demo shell, and
+then restores the normal shell, the installed plugin and the workspace.
+
 The JSON helper's `login` action opens the browser. Its output contains UI data or
 an error code, never credentials. Use the panel for normal interaction.
 
