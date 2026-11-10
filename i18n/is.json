@@ -19,5 +19,7 @@
   "pending": "Í bið",
   "unavailable": "Ekki í boði",
   "snooze": "30′",
-  "start": "Byrja að skrifa"
+  "start": "Byrja að skrifa",
+  "messageBanner": "Ný skilaboð",
+  "releaseBanner": "Nýr kafli eða uppfærsla"
 }

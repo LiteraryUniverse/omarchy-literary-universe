@@ -19,5 +19,7 @@
   "pending": "Kutilmoqda",
   "unavailable": "Mavjud emas",
   "snooze": "30′",
-  "start": "Yozishni boshlash"
+  "start": "Yozishni boshlash",
+  "messageBanner": "Yangi xabar",
+  "releaseBanner": "Yangi bob yoki yangilanish"
 }

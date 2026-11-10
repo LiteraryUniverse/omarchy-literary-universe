@@ -3,15 +3,16 @@ import { randomUUID } from 'node:crypto'
 import { execFile } from 'node:child_process'
 import { promisify } from 'node:util'
 import { pathToFileURL } from 'node:url'
-import { ApiError, baseUrl, destination, request } from './http.mjs'
+import { ApiError, baseUrl, destination, image, request } from './http.mjs'
 import { accessToken, login, logout } from './auth.mjs'
-import { stateDirectory, readState, writeState, withLock, plainMarkup, pendingNotifications } from './state.mjs'
+import { stateDirectory, readState, writeState, withLock, plainMarkup, pendingNotifications, cachedCover } from './state.mjs'
 const exec = promisify(execFile)
 const allowed = new Set(['refresh', 'login', 'logout', 'draft', 'capture', 'taskAdd', 'taskComplete', 'read', 'snooze', 'open'])
 const text = (s, max = 20000) => { if (typeof s !== 'string' || s.length > max) throw new ApiError('input'); return s }
-async function notify(title, body) {
+async function notify(label) {
   // The shell's notification service owns Do Not Disturb. Never bypass it.
-  await exec('notify-send', ['--app-name=Literary Universe', '--', plainMarkup(title), plainMarkup(body)], { timeout: 5000 }).catch(() => {})
+  // argv is visible to other local processes, so banners carry only a fixed UI label, never LU content.
+  await exec('notify-send', ['--app-name=Literary Universe', '--', 'Literary Universe', plainMarkup(String(label).slice(0, 200))], { timeout: 5000 }).catch(() => {})
 }
 export async function run(input, base = baseUrl(process.env.LU_COMPANION_URL)) {
   if (!input || !allowed.has(input.action)) throw new ApiError('input')
@@ -66,17 +67,18 @@ export async function run(input, base = baseUrl(process.env.LU_COMPANION_URL)) {
     const article = value(2, 'article', state.article || null)
     const tasks = value(3, 'tasks', { items: [] })
     if (values[2].status === 'fulfilled') state.article = article
-    const snapshot = { signedIn: true, ...summary, tasks: tasks.items, scratchpad, notifications, article, draft: state.drafts[userId]?.text || '', pending: Boolean(state.drafts[userId]?.pending), errors, retryAfter: Math.max(0, ...values.filter(v => v.status === 'rejected').map(v => v.reason.retryAfter || 0)) }
+    // Qt never loads a remote URL: covers are fetched with limits and shown from the private state directory.
+    const cover = summary.resume?.cover ? await cachedCover(dir, summary.resume.cover, image).catch(() => null) : null
+    const resume = summary.resume ? { ...summary.resume, cover } : null
+    const snapshot = { signedIn: true, ...summary, resume, tasks: tasks.items, scratchpad, notifications, article, draft: state.drafts[userId]?.text || '', pending: Boolean(state.drafts[userId]?.pending), errors, retryAfter: Math.max(0, ...values.filter(v => v.status === 'rejected').map(v => v.reason.retryAfter || 0)) }
     if (input.background === true) {
       const prefs = input.preferences || {}
       const previous = state.notifications?.userId === userId ? state.notifications : null
-      for (const item of pendingNotifications(previous, notifications.items || [])) {
-        const isMessage = item.category === 'new-message'
-        const isRelease = ['new-chapter', 'story-finished', 'changelog'].includes(item.category)
-        if ((isMessage && prefs.messages === true) || (isRelease && prefs.releases === true)) await notify('Literary Universe', item.title)
-      }
+      const fresh = pendingNotifications(previous, notifications.items || [])
+      if (prefs.messages === true && fresh.some((n) => n.category === 'new-message')) await notify(input.messageLabel || 'New message')
+      if (prefs.releases === true && fresh.some((n) => ['new-chapter', 'story-finished', 'changelog'].includes(n.category))) await notify(input.releaseLabel || 'New release')
       if (prefs.diary === true && summary.diary?.due && state.diaryShown !== `${userId}:${summary.diary.date}` && !(state.snooze?.userId === userId && state.snooze.until > Date.now())) {
-        await notify('Literary Universe', text(input.diaryLabel || 'Diary', 200))
+        await notify(input.diaryLabel || 'Diary')
         state.diaryShown = `${userId}:${summary.diary.date}`
       }
     }
@@ -86,6 +88,8 @@ export async function run(input, base = baseUrl(process.env.LU_COMPANION_URL)) {
   })
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  // Whole-run deadline: login waits up to five minutes; nothing else should come close.
+  setTimeout(() => { console.log(JSON.stringify({ error: 'timeout', retryAfter: 0 })); process.exit(1) }, 330_000).unref()
   try {
     let raw = ''
     for await (const chunk of process.stdin) { raw += chunk; if (raw.length > 128000) throw new ApiError('input'); if (raw.includes('\n')) break }

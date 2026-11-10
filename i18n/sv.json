@@ -19,5 +19,7 @@
   "pending": "Avvaktande",
   "unavailable": "Inte tillgänglig",
   "snooze": "30′",
-  "start": "Börja skriva"
+  "start": "Börja skriva",
+  "messageBanner": "Nytt meddelande",
+  "releaseBanner": "Nytt kapitel eller uppdatering"
 }

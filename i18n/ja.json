@@ -19,5 +19,7 @@
   "pending": "申請中",
   "unavailable": "提供不可",
   "snooze": "30′",
-  "start": "書き始める"
+  "start": "書き始める",
+  "messageBanner": "新しいメッセージ",
+  "releaseBanner": "新しい章または更新"
 }

@@ -2,10 +2,9 @@
 
 Capture ideas, manage personal tasks and return to your writing from the Omarchy bar.
 
-**Early access.** This first version requires LU's `/api/companion/v1` backend changes.
-It is not yet listed in the Omarchy marketplace.
+![The companion panel with example writing data](preview.png)
 
-![The companion panel with example writing data](docs/panel.png)
+Requires a free [Literary Universe](https://literaryuniverse.com) account.
 
 ## Features
 
@@ -13,28 +12,40 @@ It is not yet listed in the Omarchy marketplace.
 - **Diary:** start or continue today's and yesterday's entries and receive an optional daily desktop reminder using your LU reminder timezone and hour. Snooze for 30 minutes. Completed days are not reminded.
 - **Todos:** add and complete personal tasks using LU's task permissions and subscription rules. The panel shows up to 100 unfinished tasks, ordered by due date.
 - **Continue writing:** return to the last story or universe in your LU writing history, using the same destination as your dashboard.
-- **Notifications:** see the latest three Novu notifications, open their destinations and mark them read. The bar badge counts unread items among these three. Optional message and release banners respect desktop Do Not Disturb.
+- **Notifications:** see the latest three Novu notifications, open their destinations and mark them read. The bar badge counts unread items among these three. Optional message and release banners respect desktop Do Not Disturb. Banners say only that something new arrived; the text stays in the panel.
 - **Account:** see the signed-in username and open its menu to log out.
 - **LU blog:** show the latest published article from LU's configured official blog.
 
+## Requirements
+
+Omarchy 4 Quattro with `qs.Commons.Translations` (tested on Omarchy 4.5.0, x86_64).
+The helper runs on Node.js 22 or later, found as `node` on the shell's `PATH`.
+It also uses `util-linux` (`flock`), `libsecret` (`secret-tool`) with a running
+Secret Service such as GNOME Keyring, `xdg-utils` (`xdg-open`) and `libnotify`
+(`notify-send`). No npm packages, build step or installation hooks are used.
+
+Check with `node --version` and install Node.js 22 or later if it is missing.
+
 ## Installation
-
-Requires Omarchy Quattro with `qs.Commons.Translations`, Node.js 22 or later,
-`util-linux` (`flock`), `libsecret` (`secret-tool`), a running Secret Service,
-`xdg-utils` and `libnotify`. No npm packages or build step are needed.
-
-Once the LU companion API is deployed:
 
 ```sh
 omarchy plugin add https://github.com/LiteraryUniverse/omarchy-literary-universe.git
 omarchy plugin enable literaryuniverse.companion
 ```
 
-To test the latest unpublished version, clone `main` into a separate directory,
-review it, then copy that directory to `~/.config/omarchy/plugins/literaryuniverse.companion`.
-Run `omarchy plugin validate` on the directory, rescan with
-`omarchy-shell shell rescanPlugins`, and enable it. Do not overwrite an existing
-installation or unsynced local data.
+To test an unreleased version, clone `main` into a separate directory, review it,
+run `omarchy plugin validate` on it, then copy it to
+`~/.config/omarchy/plugins/literaryuniverse.companion` and rescan with
+`omarchy-shell shell rescanPlugins`. Do not overwrite an existing installation
+or unsynced local data.
+
+## Update
+
+```sh
+omarchy plugin update literaryuniverse.companion
+```
+
+Settings, the keyring login and local drafts are kept across updates.
 
 Click the LU logo and choose **Log in**. Your browser opens LU's OAuth consent
 page. The plugin never asks for your LU password. Authentication requests separate permissions:
@@ -78,39 +89,55 @@ set; do not change a running production shell just to test. Each origin has a
 separate keyring credential and data directory.
 
 ```sh
-npm test
-npm run check
+tests/run
 omarchy plugin validate .
 printf '%s\n' '{"action":"refresh"}' | LU_COMPANION_URL=http://localhost:4200 node src/bridge.mjs
 ```
+
+`demo/run` retakes `preview.png` from fictional fixtures. It stops the running
+shell for about half a minute, loads this checkout's `HEAD` in a demo shell, and
+then restores the normal shell, the installed plugin and the workspace.
 
 The JSON helper's `login` action opens the browser. Its output contains UI data or
 an error code, never credentials. Use the panel for normal interaction.
 
 ## Privacy and removal
 
+The plugin talks only to `literaryuniverse.com` (or the loopback origin you set
+for testing) and, for the cover of your latest work, the HTTPS address LU gives
+for that cover. The helper downloads it with size and dimension limits and the
+panel shows the local copy.
+
 Tokens live in the OS keyring under `literary-universe-omarchy`. Capture drafts
 are stored per account under `$XDG_STATE_HOME/literary-universe-omarchy` (default
 `~/.local/state/literary-universe-omarchy`), with private directory/file permissions.
 Drafts are plaintext, so disk encryption remains relevant. They survive logout
 and removal to avoid losing unsent writing; another account cannot see them in
-the panel. No analytics or third-party network requests are added by the plugin.
+the panel. The plugin adds no analytics.
 
 **Log out** revokes the refresh token before clearing the local credential.
 If LU cannot be reached, retry logout when connected, or revoke the grant in LU's
-Integrations settings. Removing the plugin alone does not revoke the grant:
+Integrations settings. Removing the plugin alone does not revoke the grant.
+
+To remove everything, log out first, then remove the plugin and its local state:
 
 ```sh
 omarchy plugin remove literaryuniverse.companion
+rm -rf "${XDG_STATE_HOME:-$HOME/.local/state}/literary-universe-omarchy"
 ```
 
-Export or submit any unsent capture before manually deleting its local state.
+Export or submit any unsent capture before deleting the local state.
 Legacy scratchpads with HTML but no editor document must first be saved in LU's
 web editor. The desktop appends notes; full rich-text editing stays on the website.
 
+## Support and security
+
+Report bugs and ask questions in [GitHub issues](https://github.com/LiteraryUniverse/omarchy-literary-universe/issues).
+Report security problems privately to security@literaryuniverse.com, not in a public issue.
+
 ## Contributing and publishing
 
-See [the release checklist](docs/releasing.md) and [the API contract](docs/api.md).
+See [the release checklist](docs/releasing.md), [the changelog](CHANGELOG.md) and [the API contract](docs/api.md).
 The UI follows Omarchy's shared controls, palette and locale. The multiline field
 uses Qt Quick Controls because Omarchy has no multiline editor. The 50 locale
 catalogs are bundled and can be corrected through pull requests.

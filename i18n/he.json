@@ -19,5 +19,7 @@
   "pending": "בהמתנה",
   "unavailable": "לא זמין",
   "snooze": "30′",
-  "start": "התחלת כתיבה"
+  "start": "התחלת כתיבה",
+  "messageBanner": "הודעה חדשה",
+  "releaseBanner": "פרק חדש או עדכון"
 }

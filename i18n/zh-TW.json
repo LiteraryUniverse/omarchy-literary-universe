@@ -19,5 +19,7 @@
   "pending": "待定",
   "unavailable": "不開放",
   "snooze": "30′",
-  "start": "開始寫作"
+  "start": "開始寫作",
+  "messageBanner": "新訊息",
+  "releaseBanner": "新章節或更新"
 }

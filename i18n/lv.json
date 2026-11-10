@@ -19,5 +19,7 @@
   "pending": "Gaida",
   "unavailable": "Nav pieejams",
   "snooze": "30′",
-  "start": "Sākt rakstīt"
+  "start": "Sākt rakstīt",
+  "messageBanner": "Jauna ziņa",
+  "releaseBanner": "Jauna nodaļa vai atjauninājums"
 }

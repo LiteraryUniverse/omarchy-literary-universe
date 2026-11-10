@@ -19,5 +19,7 @@
   "pending": "Nakabinbin",
   "unavailable": "Hindi available",
   "snooze": "30′",
-  "start": "Magsimulang magsulat"
+  "start": "Magsimulang magsulat",
+  "messageBanner": "Bagong mensahe",
+  "releaseBanner": "Bagong kabanata o update"
 }

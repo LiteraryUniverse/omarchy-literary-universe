@@ -19,5 +19,7 @@
   "pending": "Inasubiri",
   "unavailable": "Haipatikani",
   "snooze": "30′",
-  "start": "Anza kuandika"
+  "start": "Anza kuandika",
+  "messageBanner": "Ujumbe mpya",
+  "releaseBanner": "Sura mpya au sasisho"
 }

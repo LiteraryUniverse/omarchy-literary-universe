@@ -19,5 +19,7 @@
   "pending": "Đang chờ xử lý",
   "unavailable": "Không khả dụng",
   "snooze": "30′",
-  "start": "Bắt đầu viết"
+  "start": "Bắt đầu viết",
+  "messageBanner": "Tin nhắn mới",
+  "releaseBanner": "Chương mới hoặc cập nhật"
 }

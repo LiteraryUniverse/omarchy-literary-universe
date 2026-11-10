@@ -19,5 +19,7 @@
   "pending": "보류 중",
   "unavailable": "이용 불가",
   "snooze": "30′",
-  "start": "글쓰기 시작"
+  "start": "글쓰기 시작",
+  "messageBanner": "새 메시지",
+  "releaseBanner": "새 챕터 또는 업데이트"
 }

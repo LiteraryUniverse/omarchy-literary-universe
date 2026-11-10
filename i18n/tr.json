@@ -19,5 +19,7 @@
   "pending": "Beklemede",
   "unavailable": "Mevcut değil",
   "snooze": "30′",
-  "start": "Yazmaya başla"
+  "start": "Yazmaya başla",
+  "messageBanner": "Yeni mesaj",
+  "releaseBanner": "Yeni bölüm veya güncelleme"
 }

@@ -19,5 +19,7 @@
   "pending": "V čakanju",
   "unavailable": "Ni na voljo",
   "snooze": "30′",
-  "start": "Začni pisati"
+  "start": "Začni pisati",
+  "messageBanner": "Novo sporočilo",
+  "releaseBanner": "Novo poglavje ali posodobitev"
 }

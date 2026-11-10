@@ -19,5 +19,7 @@
   "pending": "در انتظار",
   "unavailable": "در دسترس نیست",
   "snooze": "30′",
-  "start": "شروع نوشتن"
+  "start": "شروع نوشتن",
+  "messageBanner": "پیام جدید",
+  "releaseBanner": "فصل جدید یا به‌روزرسانی"
 }

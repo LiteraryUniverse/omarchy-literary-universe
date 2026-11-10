@@ -19,5 +19,7 @@
   "pending": "Čeká se na",
   "unavailable": "Není k dispozici",
   "snooze": "30′",
-  "start": "Začít psát"
+  "start": "Začít psát",
+  "messageBanner": "Nová zpráva",
+  "releaseBanner": "Nová kapitola nebo novinka"
 }
