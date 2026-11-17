@@ -239,7 +239,7 @@ Panel {
               Timer { id: draftTimer; interval: 400; onTriggered: root.invoke("draft", {text: capture.text}) }
             }
             PlainText { visible: !!root.snapshot.pending; text: strings.t("pending"); Layout.fillWidth: true }
-            Button { foreground: Commons.Color.popups.text; id: saveCapture; text: strings.t("save"); focusable: true; enabled: !root.busy && capture.text.trim() !== ""; onClicked: { draftTimer.stop(); root.invoke("capture", {text: capture.text}) } }
+            Button { foreground: Commons.Color.popups.text; id: saveCapture; text: strings.t("add"); focusable: true; enabled: !root.busy && capture.text.trim() !== ""; onClicked: { draftTimer.stop(); root.invoke("capture", {text: capture.text}) } }
             PanelSeparator { foreground: Commons.Color.popups.text; Layout.fillWidth: true }
             PlainText { text: strings.t("diary"); font.bold: true }
             Repeater {
@@ -290,7 +290,7 @@ Panel {
               }
             }
             PanelSeparator { foreground: Commons.Color.popups.text; Layout.fillWidth: true }
-            PlainText { text: strings.t("blog"); font.bold: true }
+            PlainText { text: strings.t("blog"); font.bold: true; Layout.fillWidth: true }
             PlainText { text: root.snapshot.article ? root.snapshot.article.title : strings.t("unavailable"); Layout.fillWidth: true }
             Button { foreground: Commons.Color.popups.text; visible: !!root.snapshot.article; text: strings.t("open"); focusable: true; onClicked: root.openPath(root.snapshot.article.path) }
           }
