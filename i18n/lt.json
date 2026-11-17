@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Pradėti rašyti",
   "messageBanner": "Nauja žinutė",
-  "releaseBanner": "Naujas skyrius arba atnaujinimas"
+  "releaseBanner": "Naujas skyrius arba atnaujinimas",
+  "noNotifications": "Pranešimų nėra"
 }

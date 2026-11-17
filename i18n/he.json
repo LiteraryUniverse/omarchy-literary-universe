@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "התחלת כתיבה",
   "messageBanner": "הודעה חדשה",
-  "releaseBanner": "פרק חדש או עדכון"
+  "releaseBanner": "פרק חדש או עדכון",
+  "noNotifications": "אין התראות"
 }

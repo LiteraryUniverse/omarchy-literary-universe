@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Tosaigh ag scríobh",
   "messageBanner": "Teachtaireacht nua",
-  "releaseBanner": "Caibidil nua nó nuashonrú"
+  "releaseBanner": "Caibidil nua nó nuashonrú",
+  "noNotifications": "Níl aon fhógraí ann"
 }

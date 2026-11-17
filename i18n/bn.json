@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "লেখা শুরু করুন",
   "messageBanner": "নতুন বার্তা",
-  "releaseBanner": "নতুন অধ্যায় বা আপডেট"
+  "releaseBanner": "নতুন অধ্যায় বা আপডেট",
+  "noNotifications": "কোনো বিজ্ঞপ্তি নেই"
 }

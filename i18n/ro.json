@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Începe să scrii",
   "messageBanner": "Mesaj nou",
-  "releaseBanner": "Capitol nou sau actualizare"
+  "releaseBanner": "Capitol nou sau actualizare",
+  "noNotifications": "Nicio notificare"
 }

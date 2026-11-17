@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Írás elkezdése",
   "messageBanner": "Új üzenet",
-  "releaseBanner": "Új fejezet vagy frissítés"
+  "releaseBanner": "Új fejezet vagy frissítés",
+  "noNotifications": "Nincsenek értesítések"
 }

@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Begin met schrijven",
   "messageBanner": "Nieuw bericht",
-  "releaseBanner": "Nieuw hoofdstuk of update"
+  "releaseBanner": "Nieuw hoofdstuk of update",
+  "noNotifications": "Geen meldingen"
 }

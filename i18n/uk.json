@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Почати писати",
   "messageBanner": "Нове повідомлення",
-  "releaseBanner": "Новий розділ або оновлення"
+  "releaseBanner": "Новий розділ або оновлення",
+  "noNotifications": "Немає сповіщень"
 }

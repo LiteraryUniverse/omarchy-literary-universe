@@ -77,6 +77,10 @@ Panel {
       snapshot = result
       if (result.errors && result.errors.length) errorCode = "unavailable: " + result.errors.join(", ")
       if (result.retryAfter) nextRefresh = Date.now() + result.retryAfter * 1000
+      if (current.action === "capture" && panel.loadedContent) Qt.callLater(function() {
+        var view = panel.loadedContent ? panel.loadedContent.notesView.contentItem : null
+        if (view) view.contentY = Math.max(0, view.contentHeight - view.height)
+      })
       if (current.action === "taskAdd" && panel.loadedContent && panel.loadedContent.taskEditor.text === current.text) { panel.loadedContent.taskEditor.text = ""; taskId = "" }
       if (editor && (!dirtyDraft || accountChanged || current.action === "capture" || !result.signedIn)) {
         loadingDraft = true
@@ -128,6 +132,7 @@ Panel {
       id: content
       property alias editor: capture
       property alias taskEditor: newTask
+      property alias notesView: notesScroll
       implicitHeight: column.implicitHeight
       Keys.onEscapePressed: root.close()
       Controls.ScrollView {
@@ -186,8 +191,22 @@ Panel {
               }
             }
             PanelSeparator { foreground: Commons.Color.popups.text; Layout.fillWidth: true }
-            PlainText { text: strings.t("scratchpad"); font.bold: true }
-            PlainText { text: root.snapshot.scratchpad ? root.snapshot.scratchpad.text : ""; maximumLineCount: 4; elide: Text.ElideRight; Layout.fillWidth: true }
+            RowLayout {
+              Layout.fillWidth: true
+              PlainText { text: strings.t("scratchpad"); font.bold: true; Layout.fillWidth: true }
+              Button { foreground: Commons.Color.popups.text; text: strings.t("open"); focusable: true; onClicked: root.openPath("/user/scratchpad") }
+            }
+            // The notes scroll in their own box, so a long scratchpad stays readable without pushing the rest away.
+            Controls.ScrollView {
+              id: notesScroll
+              visible: notes.text !== ""
+              Layout.fillWidth: true
+              Layout.preferredHeight: Math.min(notes.implicitHeight, Style.space(170))
+              contentWidth: availableWidth
+              clip: true
+              Controls.ScrollBar.horizontal.policy: Controls.ScrollBar.AlwaysOff
+              PlainText { id: notes; width: notesScroll.availableWidth; text: root.snapshot.scratchpad ? root.snapshot.scratchpad.text : "" }
+            }
             // Omarchy's kit has no multiline editor. Use the Qt control with its palette and spacing.
             Controls.TextArea {
               id: capture
@@ -252,8 +271,13 @@ Panel {
               }
             }
             PanelSeparator { foreground: Commons.Color.popups.text; Layout.fillWidth: true }
-            PlainText { text: strings.t("notifications"); font.bold: true }
+            RowLayout {
+              Layout.fillWidth: true
+              PlainText { text: strings.t("notifications"); font.bold: true; Layout.fillWidth: true }
+              Button { foreground: Commons.Color.popups.text; text: strings.t("open"); focusable: true; onClicked: root.openPath("/user/notifications") }
+            }
             PlainText { visible: !!root.snapshot.notifications && !root.snapshot.notifications.available; text: strings.t("unavailable"); Layout.fillWidth: true }
+            PlainText { visible: !!root.snapshot.notifications && root.snapshot.notifications.available && !root.snapshot.notifications.items.length; text: strings.t("noNotifications"); Layout.fillWidth: true }
             Repeater {
               model: root.snapshot.notifications ? root.snapshot.notifications.items.slice(0, 3) : []
               RowLayout {

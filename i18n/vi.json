@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Bắt đầu viết",
   "messageBanner": "Tin nhắn mới",
-  "releaseBanner": "Chương mới hoặc cập nhật"
+  "releaseBanner": "Chương mới hoặc cập nhật",
+  "noNotifications": "Không có thông báo"
 }

@@ -62,7 +62,9 @@ export async function run(input, base = baseUrl(process.env.LU_COMPANION_URL)) {
     const values = await Promise.allSettled([api('/scratchpad'), api('/notifications'), api('/article'), api('/tasks')])
     const errors = []
     const value = (index, key, fallback) => { if (values[index].status === 'fulfilled') return values[index].value; errors.push(key); return fallback }
-    const scratchpad = value(0, 'scratchpad', null)
+    // LU separates paragraphs with a blank line. One line each reads like the web editor and fits the panel.
+    const pad = value(0, 'scratchpad', null)
+    const scratchpad = pad && { ...pad, text: String(pad.text ?? '').replace(/\n\n/g, '\n').trimEnd() }
     const notifications = value(1, 'notifications', { available: false, items: [] })
     const article = value(2, 'article', state.article || null)
     const tasks = value(3, 'tasks', { items: [] })

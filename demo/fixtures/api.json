@@ -8,7 +8,7 @@
       { "date": "{yesterday}", "path": "/diary", "started": true }
     ] }
   },
-  "/scratchpad": { "text": "The city moves one street east every night. Who keeps redrawing the map?", "updatedAt": "{now}" },
+  "/scratchpad": { "text": "The city moves one street east every night. Who keeps redrawing the map?\n\nMira never signs her maps. Why?\n\nObservatory scene: the lens shows last night's sky.\n\nNames for the river spirits\n\nThe ferryman remembers every passenger but one.", "updatedAt": "{now}" },
   "/tasks": { "items": [
     { "id": "t1", "title": "Finish the observatory scene", "version": 1, "dueDate": "{today}" },
     { "id": "t2", "title": "Send chapter 12 to beta readers", "version": 1 }

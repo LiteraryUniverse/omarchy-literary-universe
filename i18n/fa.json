@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "شروع نوشتن",
   "messageBanner": "پیام جدید",
-  "releaseBanner": "فصل جدید یا به‌روزرسانی"
+  "releaseBanner": "فصل جدید یا به‌روزرسانی",
+  "noNotifications": "اعلانی وجود ندارد"
 }

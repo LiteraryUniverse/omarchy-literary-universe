@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Aloita kirjoittaminen",
   "messageBanner": "Uusi viesti",
-  "releaseBanner": "Uusi luku tai päivitys"
+  "releaseBanner": "Uusi luku tai päivitys",
+  "noNotifications": "Ei ilmoituksia"
 }

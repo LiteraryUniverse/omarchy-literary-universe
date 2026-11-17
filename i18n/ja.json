@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "書き始める",
   "messageBanner": "新しいメッセージ",
-  "releaseBanner": "新しい章または更新"
+  "releaseBanner": "新しい章または更新",
+  "noNotifications": "通知はありません"
 }

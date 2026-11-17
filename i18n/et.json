@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Alusta kirjutamist",
   "messageBanner": "Uus sõnum",
-  "releaseBanner": "Uus peatükk või uuendus"
+  "releaseBanner": "Uus peatükk või uuendus",
+  "noNotifications": "Teavitusi pole"
 }

@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Yozishni boshlash",
   "messageBanner": "Yangi xabar",
-  "releaseBanner": "Yangi bob yoki yangilanish"
+  "releaseBanner": "Yangi bob yoki yangilanish",
+  "noNotifications": "Bildirishnomalar yo‘q"
 }

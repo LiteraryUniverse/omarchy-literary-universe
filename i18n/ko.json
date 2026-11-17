@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "글쓰기 시작",
   "messageBanner": "새 메시지",
-  "releaseBanner": "새 챕터 또는 업데이트"
+  "releaseBanner": "새 챕터 또는 업데이트",
+  "noNotifications": "알림이 없습니다"
 }

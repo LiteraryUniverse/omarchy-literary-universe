@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Begynd at skrive",
   "messageBanner": "Ny besked",
-  "releaseBanner": "Nyt kapitel eller opdatering"
+  "releaseBanner": "Nyt kapitel eller opdatering",
+  "noNotifications": "Ingen notifikationer"
 }

@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Começar a escrever",
   "messageBanner": "Nova mensagem",
-  "releaseBanner": "Novo capítulo ou atualização"
+  "releaseBanner": "Novo capítulo ou atualização",
+  "noNotifications": "Nenhuma notificação"
 }

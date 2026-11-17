@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "开始写作",
   "messageBanner": "新消息",
-  "releaseBanner": "新章节或更新"
+  "releaseBanner": "新章节或更新",
+  "noNotifications": "没有通知"
 }

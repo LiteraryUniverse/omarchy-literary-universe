@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Začať písať",
   "messageBanner": "Nová správa",
-  "releaseBanner": "Nová kapitola alebo novinka"
+  "releaseBanner": "Nová kapitola alebo novinka",
+  "noNotifications": "Žiadne oznámenia"
 }

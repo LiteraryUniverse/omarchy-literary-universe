@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Започнете да пишете",
   "messageBanner": "Ново съобщение",
-  "releaseBanner": "Нова глава или актуализация"
+  "releaseBanner": "Нова глава или актуализация",
+  "noNotifications": "Няма известия"
 }

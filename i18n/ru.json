@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Начать писать",
   "messageBanner": "Новое сообщение",
-  "releaseBanner": "Новая глава или обновление"
+  "releaseBanner": "Новая глава или обновление",
+  "noNotifications": "Нет уведомлений"
 }

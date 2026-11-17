@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Byrja að skrifa",
   "messageBanner": "Ný skilaboð",
-  "releaseBanner": "Nýr kafli eða uppfærsla"
+  "releaseBanner": "Nýr kafli eða uppfærsla",
+  "noNotifications": "Engar tilkynningar"
 }

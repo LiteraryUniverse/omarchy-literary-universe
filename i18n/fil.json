@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Magsimulang magsulat",
   "messageBanner": "Bagong mensahe",
-  "releaseBanner": "Bagong kabanata o update"
+  "releaseBanner": "Bagong kabanata o update",
+  "noNotifications": "Walang abiso"
 }

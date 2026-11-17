@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Ξεκινήστε να γράφετε",
   "messageBanner": "Νέο μήνυμα",
-  "releaseBanner": "Νέο κεφάλαιο ή ενημέρωση"
+  "releaseBanner": "Νέο κεφάλαιο ή ενημέρωση",
+  "noNotifications": "Δεν υπάρχουν ειδοποιήσεις"
 }

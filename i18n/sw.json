@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Anza kuandika",
   "messageBanner": "Ujumbe mpya",
-  "releaseBanner": "Sura mpya au sasisho"
+  "releaseBanner": "Sura mpya au sasisho",
+  "noNotifications": "Hakuna arifa"
 }

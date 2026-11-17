@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Comença a escriure",
   "messageBanner": "Missatge nou",
-  "releaseBanner": "Capítol nou o actualització"
+  "releaseBanner": "Capítol nou o actualització",
+  "noNotifications": "No hi ha notificacions"
 }

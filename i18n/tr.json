@@ -21,5 +21,6 @@
   "snooze": "30′",
   "start": "Yazmaya başla",
   "messageBanner": "Yeni mesaj",
-  "releaseBanner": "Yeni bölüm veya güncelleme"
+  "releaseBanner": "Yeni bölüm veya güncelleme",
+  "noNotifications": "Bildirim yok"
 }
