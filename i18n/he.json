@@ -4,8 +4,7 @@
   "tasks": "משימות",
   "continue": "המשך כתיבה",
   "notifications": "התראות",
-  "blog": "בלוג",
-  "save": "שמירה",
+  "blog": "חדשות מצוות Literary Universe",
   "add": "הוספה",
   "done": "בוצע",
   "login": "כניסה",
@@ -15,11 +14,12 @@
   "refresh": "רענון",
   "open": "הצג",
   "read": "סמן כנקרא",
-  "capture": "ההערות והרעיונות שלך נגישים בכל מקום באתר.",
+  "capture": "הוספת הערה",
   "pending": "בהמתנה",
   "unavailable": "לא זמין",
   "snooze": "30′",
   "start": "התחלת כתיבה",
   "messageBanner": "הודעה חדשה",
-  "releaseBanner": "פרק חדש או עדכון"
+  "releaseBanner": "פרק חדש או עדכון",
+  "noNotifications": "אין התראות"
 }

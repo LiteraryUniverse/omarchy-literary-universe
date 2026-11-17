@@ -4,8 +4,7 @@
   "tasks": "タスク",
   "continue": "執筆を再開",
   "notifications": "通知",
-  "blog": "ブログ",
-  "save": "保存",
+  "blog": "Literary Universeチームからの最新情報",
   "add": "追加",
   "done": "完了",
   "login": "ログイン",
@@ -15,11 +14,12 @@
   "refresh": "更新",
   "open": "表示",
   "read": "既読としてマーク",
-  "capture": "サイトのどこからでもご自身専用のメモ欄やアイデアにアクセスが可能です。",
+  "capture": "メモを追加",
   "pending": "申請中",
   "unavailable": "提供不可",
   "snooze": "30′",
   "start": "書き始める",
   "messageBanner": "新しいメッセージ",
-  "releaseBanner": "新しい章または更新"
+  "releaseBanner": "新しい章または更新",
+  "noNotifications": "通知はありません"
 }

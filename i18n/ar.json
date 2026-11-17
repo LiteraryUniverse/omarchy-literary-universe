@@ -4,8 +4,7 @@
   "tasks": "المهام",
   "continue": "استئناف الكتابة",
   "notifications": "الإشعارات",
-  "blog": "المدونة",
-  "save": "حفظ",
+  "blog": "آخر الأخبار من فريق Literary Universe",
   "add": "إضافة",
   "done": "تم",
   "login": "تسجيل الدخول",
@@ -15,11 +14,12 @@
   "refresh": "تحديث",
   "open": "عرض",
   "read": "وضع علامة كمقروء",
-  "capture": "ملاحظاتك وأفكارك متاحة في أي مكان على الموقع.",
+  "capture": "أضف ملاحظة",
   "pending": "قيد الانتظار",
   "unavailable": "غير متاحة",
   "snooze": "30′",
   "start": "ابدأ الكتابة",
   "messageBanner": "رسالة جديدة",
-  "releaseBanner": "فصل جديد أو تحديث"
+  "releaseBanner": "فصل جديد أو تحديث",
+  "noNotifications": "لا توجد إشعارات"
 }

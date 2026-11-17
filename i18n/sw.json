@@ -4,8 +4,7 @@
   "tasks": "Majukumu",
   "continue": "Endelea kuandika",
   "notifications": "Arifa",
-  "blog": "Blogu",
-  "save": "Hifadhi",
+  "blog": "Habari mpya kutoka kwa timu ya Literary Universe",
   "add": "Ongeza",
   "done": "Imekamilika",
   "login": "Ingia",
@@ -15,11 +14,12 @@
   "refresh": "Onyesha upya",
   "open": "Tazama",
   "read": "Weka alama kuwa imesomwa",
-  "capture": "Madokezo na mawazo yako yanapatikana kila mahali kwenye tovuti.",
+  "capture": "Ongeza dokezo",
   "pending": "Inasubiri",
   "unavailable": "Haipatikani",
   "snooze": "30′",
   "start": "Anza kuandika",
   "messageBanner": "Ujumbe mpya",
-  "releaseBanner": "Sura mpya au sasisho"
+  "releaseBanner": "Sura mpya au sasisho",
+  "noNotifications": "Hakuna arifa"
 }

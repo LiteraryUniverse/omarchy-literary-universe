@@ -4,8 +4,7 @@
   "tasks": "Tascanna",
   "continue": "Lean den scríbhneoireacht",
   "notifications": "Fógraí",
-  "blog": "Blag",
-  "save": "Sábháil",
+  "blog": "An scéala is déanaí ó fhoireann Literary Universe",
   "add": "Cuir leis",
   "done": "Déanta",
   "login": "Logáil isteach",
@@ -15,11 +14,12 @@
   "refresh": "Athnuaigh",
   "open": "Féach",
   "read": "Marcáil mar léite",
-  "capture": "Do nótaí agus smaointe ar fáil i ngach áit ar an suíomh.",
+  "capture": "Cuir nóta leis",
   "pending": "Ar feitheamh",
   "unavailable": "Níl sé ar fáil",
   "snooze": "30′",
   "start": "Tosaigh ag scríobh",
   "messageBanner": "Teachtaireacht nua",
-  "releaseBanner": "Caibidil nua nó nuashonrú"
+  "releaseBanner": "Caibidil nua nó nuashonrú",
+  "noNotifications": "Níl aon fhógraí ann"
 }

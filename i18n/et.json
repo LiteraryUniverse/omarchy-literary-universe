@@ -4,8 +4,7 @@
   "tasks": "Ülesanded",
   "continue": "Jätka kirjutamist",
   "notifications": "Teavitused",
-  "blog": "Blogi",
-  "save": "Salvesta",
+  "blog": "Värsket Literary Universe’i meeskonnalt",
   "add": "Lisa",
   "done": "Valmis",
   "login": "Logi sisse",
@@ -15,11 +14,12 @@
   "refresh": "Värskenda",
   "open": "Vaata",
   "read": "Märgi loetuks",
-  "capture": "Sinu märkmed ja ideed on kättesaadavad igal pool saidil.",
+  "capture": "Lisa märge",
   "pending": "Ootel",
   "unavailable": "Pole saadaval",
   "snooze": "30′",
   "start": "Alusta kirjutamist",
   "messageBanner": "Uus sõnum",
-  "releaseBanner": "Uus peatükk või uuendus"
+  "releaseBanner": "Uus peatükk või uuendus",
+  "noNotifications": "Teavitusi pole"
 }

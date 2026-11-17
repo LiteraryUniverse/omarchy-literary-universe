@@ -4,8 +4,7 @@
   "tasks": "Feladatok",
   "continue": "Írás folytatása",
   "notifications": "Értesítések",
-  "blog": "Blog",
-  "save": "Mentés",
+  "blog": "Újdonságok a Literary Universe csapatától",
   "add": "Hozzáadás",
   "done": "Kész",
   "login": "Bejelentkezés",
@@ -15,11 +14,12 @@
   "refresh": "Frissítés",
   "open": "Megtekintés",
   "read": "Jelölje létoltnak",
-  "capture": "Az Ön jegyzetei és ötletei bárhol elérhetők a webhelyen.",
+  "capture": "Jegyzet hozzáadása",
   "pending": "Függőben",
   "unavailable": "Nem elérhető",
   "snooze": "30′",
   "start": "Írás elkezdése",
   "messageBanner": "Új üzenet",
-  "releaseBanner": "Új fejezet vagy frissítés"
+  "releaseBanner": "Új fejezet vagy frissítés",
+  "noNotifications": "Nincsenek értesítések"
 }

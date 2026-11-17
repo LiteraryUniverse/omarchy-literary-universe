@@ -4,8 +4,7 @@
   "tasks": "Zadaci",
   "continue": "Nastavi pisati",
   "notifications": "Obavijesti",
-  "blog": "Blog",
-  "save": "Spremi",
+  "blog": "Najnovije od tima Literary Universe",
   "add": "Dodaj",
   "done": "Gotovo",
   "login": "Prijava",
@@ -15,11 +14,12 @@
   "refresh": "Osvježi",
   "open": "Prikaži",
   "read": "Označi kao pročitano",
-  "capture": "Vaše bilješke i ideje dostupne su svugdje na web-mjestu.",
+  "capture": "Dodaj bilješku",
   "pending": "Na čekanju",
   "unavailable": "Nije dostupno",
   "snooze": "30′",
   "start": "Počni pisati",
   "messageBanner": "Nova poruka",
-  "releaseBanner": "Novo poglavlje ili ažuriranje"
+  "releaseBanner": "Novo poglavlje ili ažuriranje",
+  "noNotifications": "Nema obavijesti"
 }

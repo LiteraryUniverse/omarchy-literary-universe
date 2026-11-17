@@ -8,13 +8,13 @@ Requires a free [Literary Universe](https://literaryuniverse.com) account.
 
 ## Features
 
-- **Scratchpad:** read your latest notes and append a quick capture without replacing existing rich formatting. Draft capture text saves locally as you type. Interrupted submissions retain their operation ID for safe retry.
+- **Scratchpad:** read your notes in a scrolling view, open the full scratchpad in LU and add a note to its end from the box below, without replacing existing rich formatting. The notes themselves are read-only in the panel. Draft capture text saves locally as you type. Interrupted submissions retain their operation ID for safe retry.
 - **Diary:** start or continue today's and yesterday's entries and receive an optional daily desktop reminder using your LU reminder timezone and hour. Snooze for 30 minutes. Completed days are not reminded.
 - **Todos:** add and complete personal tasks using LU's task permissions and subscription rules. The panel shows up to 100 unfinished tasks, ordered by due date.
 - **Continue writing:** return to the last story or universe in your LU writing history, using the same destination as your dashboard.
-- **Notifications:** see the latest three Novu notifications, open their destinations and mark them read. The bar badge counts unread items among these three. Optional message and release banners respect desktop Do Not Disturb. Banners say only that something new arrived; the text stays in the panel.
+- **Notifications:** see the latest three Novu notifications, open their destinations or the full list in LU, and mark them read. The bar badge counts unread items among these three. Optional message and release banners respect desktop Do Not Disturb. Banners say only that something new arrived; the text stays in the panel.
 - **Account:** see the signed-in username and open its menu to log out.
-- **LU blog:** show the latest published article from LU's configured official blog.
+- **Latest from Literary Universe team:** show the latest published article from LU's configured official blog.
 
 ## Requirements
 
@@ -45,7 +45,16 @@ or unsynced local data.
 omarchy plugin update literaryuniverse.companion
 ```
 
-Settings, the keyring login and local drafts are kept across updates.
+Settings, the keyring login and local drafts are kept across updates. If the
+panel looks unchanged afterwards, restart the shell with `omarchy restart shell`:
+a running shell can keep the panel layout it loaded first.
+
+The update only fast-forwards. If it reports `cannot fast-forward`, the installed
+copy has local edits and stays on its old version. Discard them and update again:
+
+```sh
+git -C ~/.config/omarchy/plugins/literaryuniverse.companion checkout -- .
+```
 
 Click the LU logo and choose **Log in**. Your browser opens LU's OAuth consent
 page. The plugin never asks for your LU password. Authentication requests separate permissions:

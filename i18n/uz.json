@@ -4,8 +4,7 @@
   "tasks": "Vazifalar",
   "continue": "Yozishni davom ettirish",
   "notifications": "Bildirishnomalar",
-  "blog": "Blog",
-  "save": "Saqlash",
+  "blog": "Literary Universe jamoasidan so‘nggi yangiliklar",
   "add": "Qo‘shish",
   "done": "Bajarildi",
   "login": "Kirish",
@@ -15,11 +14,12 @@
   "refresh": "Yangilash",
   "open": "Ko‘rish",
   "read": "O‘qilgan deb belgilash",
-  "capture": "Qayd va g‘oyalaringizga saytning istalgan joyidan kirishingiz mumkin.",
+  "capture": "Qayd qo‘shish",
   "pending": "Kutilmoqda",
   "unavailable": "Mavjud emas",
   "snooze": "30′",
   "start": "Yozishni boshlash",
   "messageBanner": "Yangi xabar",
-  "releaseBanner": "Yangi bob yoki yangilanish"
+  "releaseBanner": "Yangi bob yoki yangilanish",
+  "noNotifications": "Bildirishnomalar yo‘q"
 }

@@ -77,6 +77,10 @@ Panel {
       snapshot = result
       if (result.errors && result.errors.length) errorCode = "unavailable: " + result.errors.join(", ")
       if (result.retryAfter) nextRefresh = Date.now() + result.retryAfter * 1000
+      if (current.action === "capture" && panel.loadedContent) Qt.callLater(function() {
+        var view = panel.loadedContent ? panel.loadedContent.notesView.contentItem : null
+        if (view) view.contentY = Math.max(0, view.contentHeight - view.height)
+      })
       if (current.action === "taskAdd" && panel.loadedContent && panel.loadedContent.taskEditor.text === current.text) { panel.loadedContent.taskEditor.text = ""; taskId = "" }
       if (editor && (!dirtyDraft || accountChanged || current.action === "capture" || !result.signedIn)) {
         loadingDraft = true
@@ -123,11 +127,12 @@ Panel {
     bar: root.bar
     open: root.opened
     contentWidth: fittedContentWidth(Style.space(420))
-    contentHeight: fittedContentHeight(loadedContentHeight, Style.space(720))
+    contentHeight: fittedContentHeight(loadedContentHeight)
     content: FocusScope {
       id: content
       property alias editor: capture
       property alias taskEditor: newTask
+      property alias notesView: notesScroll
       implicitHeight: column.implicitHeight
       Keys.onEscapePressed: root.close()
       Controls.ScrollView {
@@ -186,8 +191,23 @@ Panel {
               }
             }
             PanelSeparator { foreground: Commons.Color.popups.text; Layout.fillWidth: true }
-            PlainText { text: strings.t("scratchpad"); font.bold: true }
-            PlainText { text: root.snapshot.scratchpad ? root.snapshot.scratchpad.text : ""; maximumLineCount: 4; elide: Text.ElideRight; Layout.fillWidth: true }
+            RowLayout {
+              Layout.fillWidth: true
+              PlainText { text: strings.t("scratchpad"); font.bold: true; Layout.fillWidth: true }
+              Button { foreground: Commons.Color.popups.text; text: strings.t("open"); focusable: true; onClicked: root.openPath("/user/scratchpad") }
+            }
+            // The notes scroll in their own box, so a long scratchpad stays readable without pushing the rest away.
+            Controls.ScrollView {
+              id: notesScroll
+              visible: notes.text !== ""
+              Layout.fillWidth: true
+              Layout.preferredHeight: Math.min(notes.implicitHeight, Style.space(170))
+              contentWidth: availableWidth
+              clip: true
+              Controls.ScrollBar.horizontal.policy: Controls.ScrollBar.AlwaysOff
+              Controls.ScrollBar.vertical.policy: notes.implicitHeight > height ? Controls.ScrollBar.AlwaysOn : Controls.ScrollBar.AlwaysOff
+              PlainText { id: notes; width: notesScroll.availableWidth; text: root.snapshot.scratchpad ? root.snapshot.scratchpad.text : "" }
+            }
             // Omarchy's kit has no multiline editor. Use the Qt control with its palette and spacing.
             Controls.TextArea {
               id: capture
@@ -219,7 +239,7 @@ Panel {
               Timer { id: draftTimer; interval: 400; onTriggered: root.invoke("draft", {text: capture.text}) }
             }
             PlainText { visible: !!root.snapshot.pending; text: strings.t("pending"); Layout.fillWidth: true }
-            Button { foreground: Commons.Color.popups.text; id: saveCapture; text: strings.t("save"); focusable: true; enabled: !root.busy && capture.text.trim() !== ""; onClicked: { draftTimer.stop(); root.invoke("capture", {text: capture.text}) } }
+            Button { foreground: Commons.Color.popups.text; id: saveCapture; text: strings.t("add"); focusable: true; enabled: !root.busy && capture.text.trim() !== ""; onClicked: { draftTimer.stop(); root.invoke("capture", {text: capture.text}) } }
             PanelSeparator { foreground: Commons.Color.popups.text; Layout.fillWidth: true }
             PlainText { text: strings.t("diary"); font.bold: true }
             Repeater {
@@ -252,8 +272,13 @@ Panel {
               }
             }
             PanelSeparator { foreground: Commons.Color.popups.text; Layout.fillWidth: true }
-            PlainText { text: strings.t("notifications"); font.bold: true }
+            RowLayout {
+              Layout.fillWidth: true
+              PlainText { text: strings.t("notifications"); font.bold: true; Layout.fillWidth: true }
+              Button { foreground: Commons.Color.popups.text; text: strings.t("open"); focusable: true; onClicked: root.openPath("/user/notifications") }
+            }
             PlainText { visible: !!root.snapshot.notifications && !root.snapshot.notifications.available; text: strings.t("unavailable"); Layout.fillWidth: true }
+            PlainText { visible: !!root.snapshot.notifications && root.snapshot.notifications.available && !root.snapshot.notifications.items.length; text: strings.t("noNotifications"); Layout.fillWidth: true }
             Repeater {
               model: root.snapshot.notifications ? root.snapshot.notifications.items.slice(0, 3) : []
               RowLayout {
@@ -265,7 +290,7 @@ Panel {
               }
             }
             PanelSeparator { foreground: Commons.Color.popups.text; Layout.fillWidth: true }
-            PlainText { text: strings.t("blog"); font.bold: true }
+            PlainText { text: strings.t("blog"); font.bold: true; Layout.fillWidth: true }
             PlainText { text: root.snapshot.article ? root.snapshot.article.title : strings.t("unavailable"); Layout.fillWidth: true }
             Button { foreground: Commons.Color.popups.text; visible: !!root.snapshot.article; text: strings.t("open"); focusable: true; onClicked: root.openPath(root.snapshot.article.path) }
           }

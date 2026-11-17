@@ -4,8 +4,7 @@
   "tasks": "Tasks",
   "continue": "Resume writing",
   "notifications": "Notifications",
-  "blog": "Blog",
-  "save": "Save",
+  "blog": "Latest from Literary Universe team",
   "add": "Add",
   "done": "Done",
   "login": "Log in",
@@ -15,11 +14,12 @@
   "refresh": "Refresh",
   "open": "View",
   "read": "Mark as read",
-  "capture": "Your notes and ideas accessible anywhere on the site.",
+  "capture": "Add a note",
   "pending": "Pending",
   "unavailable": "Not available",
   "snooze": "30′",
   "start": "Start writing",
   "messageBanner": "New message",
-  "releaseBanner": "New chapter or update"
+  "releaseBanner": "New chapter or update",
+  "noNotifications": "No notifications"
 }

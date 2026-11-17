@@ -4,8 +4,7 @@
   "tasks": "Verkefni",
   "continue": "Halda áfram að skrifa",
   "notifications": "Tilkynningar",
-  "blog": "Blogg",
-  "save": "Vista",
+  "blog": "Nýjast frá Literary Universe teyminu",
   "add": "Bæta við",
   "done": "Lokið",
   "login": "Skrá inn",
@@ -15,11 +14,12 @@
   "refresh": "Endurnýja",
   "open": "Skoða",
   "read": "Merkja sem lesið",
-  "capture": "Glósurnar þínar og hugmyndir aðgengilegar alls staðar á vefnum.",
+  "capture": "Bæta við glósu",
   "pending": "Í bið",
   "unavailable": "Ekki í boði",
   "snooze": "30′",
   "start": "Byrja að skrifa",
   "messageBanner": "Ný skilaboð",
-  "releaseBanner": "Nýr kafli eða uppfærsla"
+  "releaseBanner": "Nýr kafli eða uppfærsla",
+  "noNotifications": "Engar tilkynningar"
 }

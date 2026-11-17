@@ -4,8 +4,7 @@
   "tasks": "Công việc",
   "continue": "Viết tiếp",
   "notifications": "Thông báo",
-  "blog": "Blog",
-  "save": "Lưu",
+  "blog": "Tin mới nhất từ đội ngũ Literary Universe",
   "add": "Thêm",
   "done": "Hoàn thành",
   "login": "Đăng nhập",
@@ -15,11 +14,12 @@
   "refresh": "Làm mới",
   "open": "Xem",
   "read": "Đánh dấu là đã đọc",
-  "capture": "Ghi chú và ý tưởng của bạn có thể truy cập bất cứ nơi nào trên trang web.",
+  "capture": "Thêm ghi chú",
   "pending": "Đang chờ xử lý",
   "unavailable": "Không khả dụng",
   "snooze": "30′",
   "start": "Bắt đầu viết",
   "messageBanner": "Tin nhắn mới",
-  "releaseBanner": "Chương mới hoặc cập nhật"
+  "releaseBanner": "Chương mới hoặc cập nhật",
+  "noNotifications": "Không có thông báo"
 }

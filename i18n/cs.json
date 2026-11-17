@@ -4,8 +4,7 @@
   "tasks": "Úkoly",
   "continue": "Pokračujte ve psaní",
   "notifications": "Upozornění",
-  "blog": "Blog",
-  "save": "Uložit",
+  "blog": "Novinky od týmu Literary Universe",
   "add": "Přidat",
   "done": "Hotovo",
   "login": "Přihlásit se",
@@ -15,11 +14,12 @@
   "refresh": "Obnovit",
   "open": "Zobrazit",
   "read": "Označit jako přečtené",
-  "capture": "Vaše poznámky a nápady dostupné kdekoli na webu.",
+  "capture": "Přidat poznámku",
   "pending": "Čeká se na",
   "unavailable": "Není k dispozici",
   "snooze": "30′",
   "start": "Začít psát",
   "messageBanner": "Nová zpráva",
-  "releaseBanner": "Nová kapitola nebo novinka"
+  "releaseBanner": "Nová kapitola nebo novinka",
+  "noNotifications": "Žádná upozornění"
 }

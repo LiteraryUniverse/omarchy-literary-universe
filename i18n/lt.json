@@ -4,8 +4,7 @@
   "tasks": "Užduotys",
   "continue": "Tęsti rašymą",
   "notifications": "Pranešimai",
-  "blog": "Tinklaraštis",
-  "save": "Įrašyti",
+  "blog": "Naujienos iš „Literary Universe“ komandos",
   "add": "Pridėti",
   "done": "Atlikta",
   "login": "Prisijungti",
@@ -15,11 +14,12 @@
   "refresh": "Atnaujinti",
   "open": "Peržiūrėti",
   "read": "Pažymėti kaip perskaitytą",
-  "capture": "Jūsų pastabos ir idėjos pasiekiamos bet kur svetainėje.",
+  "capture": "Pridėti pastabą",
   "pending": "Laukiama",
   "unavailable": "Neprieinama",
   "snooze": "30′",
   "start": "Pradėti rašyti",
   "messageBanner": "Nauja žinutė",
-  "releaseBanner": "Naujas skyrius arba atnaujinimas"
+  "releaseBanner": "Naujas skyrius arba atnaujinimas",
+  "noNotifications": "Pranešimų nėra"
 }

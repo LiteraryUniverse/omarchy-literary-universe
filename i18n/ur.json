@@ -4,8 +4,7 @@
   "tasks": "کام",
   "continue": "لکھنا جاری رکھیں",
   "notifications": "اطلاعات",
-  "blog": "بلاگ",
-  "save": "محفوظ کریں",
+  "blog": "Literary Universe ٹیم کی تازہ ترین خبریں",
   "add": "شامل کریں",
   "done": "مکمل",
   "login": "لاگ ان",
@@ -15,11 +14,12 @@
   "refresh": "تازہ کریں",
   "open": "دیکھیں",
   "read": "پڑھا ہوا نشان لگائیں",
-  "capture": "آپ کے نوٹس اور خیالات پوری ویب سائٹ پر دستیاب ہیں۔",
+  "capture": "نوٹ شامل کریں",
   "pending": "زیر التوا",
   "unavailable": "دستیاب نہیں",
   "snooze": "30′",
   "start": "لکھنا شروع کریں",
   "messageBanner": "نیا پیغام",
-  "releaseBanner": "نیا باب یا اپ ڈیٹ"
+  "releaseBanner": "نیا باب یا اپ ڈیٹ",
+  "noNotifications": "کوئی اطلاعات نہیں"
 }

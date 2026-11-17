@@ -4,8 +4,7 @@
   "tasks": "Uppgifter",
   "continue": "Fortsätt skriva",
   "notifications": "Notifikationer",
-  "blog": "Blogg",
-  "save": "Spara",
+  "blog": "Senaste nytt från Literary Universe-teamet",
   "add": "Lägg till",
   "done": "Klar",
   "login": "Logga in",
@@ -15,11 +14,12 @@
   "refresh": "Uppdatera",
   "open": "Visa",
   "read": "Markera som läst",
-  "capture": "Dina anteckningar och idéer tillgängliga var som helst på webbplatsen.",
+  "capture": "Lägg till en anteckning",
   "pending": "Avvaktande",
   "unavailable": "Inte tillgänglig",
   "snooze": "30′",
   "start": "Börja skriva",
   "messageBanner": "Nytt meddelande",
-  "releaseBanner": "Nytt kapitel eller uppdatering"
+  "releaseBanner": "Nytt kapitel eller uppdatering",
+  "noNotifications": "Inga notifikationer"
 }

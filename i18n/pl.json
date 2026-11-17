@@ -4,8 +4,7 @@
   "tasks": "Zadania",
   "continue": "Wróć do pisania",
   "notifications": "Powiadomienia",
-  "blog": "Blog",
-  "save": "Zapisz",
+  "blog": "Nowości od zespołu Literary Universe",
   "add": "Dodaj",
   "done": "Gotowe",
   "login": "Zaloguj się",
@@ -15,11 +14,12 @@
   "refresh": "Odśwież",
   "open": "Zobacz",
   "read": "Oznacz jako przeczytane",
-  "capture": "Twoje notatki i pomysły dostępne w każdym miejscu na stronie.",
+  "capture": "Dodaj notatkę",
   "pending": "W toku",
   "unavailable": "Niedostępne",
   "snooze": "30′",
   "start": "Zacznij pisać",
   "messageBanner": "Nowa wiadomość",
-  "releaseBanner": "Nowy rozdział lub aktualizacja"
+  "releaseBanner": "Nowy rozdział lub aktualizacja",
+  "noNotifications": "Brak powiadomień"
 }

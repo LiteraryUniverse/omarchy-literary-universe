@@ -4,8 +4,7 @@
   "tasks": "Sarcini",
   "continue": "Reia scrisul",
   "notifications": "Notificări",
-  "blog": "Blog",
-  "save": "Salvare",
+  "blog": "Noutăți de la echipa Literary Universe",
   "add": "Adăugare",
   "done": "Gata",
   "login": "Autentificare",
@@ -15,11 +14,12 @@
   "refresh": "Reîmprospătează",
   "open": "Vezi",
   "read": "Marchează ca citită",
-  "capture": "Notele și ideile tale accesibile oriunde pe site.",
+  "capture": "Adaugă o notă",
   "pending": "În așteptare",
   "unavailable": "Indisponibil",
   "snooze": "30′",
   "start": "Începe să scrii",
   "messageBanner": "Mesaj nou",
-  "releaseBanner": "Capitol nou sau actualizare"
+  "releaseBanner": "Capitol nou sau actualizare",
+  "noNotifications": "Nicio notificare"
 }

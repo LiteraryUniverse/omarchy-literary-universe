@@ -18,7 +18,7 @@ test('bridge preserves ambiguous captures and isolates drafts when accounts chan
     assert.equal(req.headers.authorization, 'Bearer test-token')
     if(req.url.endsWith('/summary')) res.end(JSON.stringify({userId,diary:{due:false}}))
     else if(req.url.endsWith('/capture')) { captures.push(JSON.parse(body)); if(failCapture){failCapture=false;res.writeHead(503).end('{"error":"unavailable"}')}else res.end('{"ok":true}') }
-    else if(req.url.endsWith('/scratchpad')) res.end('{"text":"Existing"}')
+    else if(req.url.endsWith('/scratchpad')) res.end(JSON.stringify({text:'Existing\n\nSecond\n\n\n\nAfter a gap\n\n'}))
     else if(req.url.endsWith('/notifications')) res.end('{"available":true,"items":[],"hasMore":false}')
     else if(req.url.endsWith('/tasks')) res.end('{"items":[]}')
     else if(req.url.endsWith('/article')) res.end('null')
@@ -30,7 +30,8 @@ test('bridge preserves ambiguous captures and isolates drafts when accounts chan
     process.env.PATH = `${dir}/bin:${oldPath}`; process.env.XDG_STATE_HOME = dir
     await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve))
     const base=`http://127.0.0.1:${server.address().port}`
-    await run({action:'refresh'},base)
+    // Paragraph breaks become single lines; an empty paragraph stays one blank line.
+    assert.equal((await run({action:'refresh'},base)).scratchpad.text,'Existing\nSecond\n\nAfter a gap')
     await run({action:'draft',userId:'alice',text:'Keep this note'},base)
     userId='bob'
     assert.equal((await run({action:'refresh'},base)).draft,'')

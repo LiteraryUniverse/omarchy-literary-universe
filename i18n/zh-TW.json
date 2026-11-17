@@ -4,8 +4,7 @@
   "tasks": "待辦事項",
   "continue": "繼續寫作",
   "notifications": "通知",
-  "blog": "部落格",
-  "save": "儲存",
+  "blog": "Literary Universe 團隊的最新消息",
   "add": "新增",
   "done": "完成",
   "login": "登入",
@@ -15,11 +14,12 @@
   "refresh": "重新整理",
   "open": "查看",
   "read": "標記為已讀",
-  "capture": "您的筆記和想法可以在網站的任何地方訪問。",
+  "capture": "新增筆記",
   "pending": "待定",
   "unavailable": "不開放",
   "snooze": "30′",
   "start": "開始寫作",
   "messageBanner": "新訊息",
-  "releaseBanner": "新章節或更新"
+  "releaseBanner": "新章節或更新",
+  "noNotifications": "沒有通知"
 }

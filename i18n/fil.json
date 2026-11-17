@@ -4,8 +4,7 @@
   "tasks": "Mga gawain",
   "continue": "Ipagpatuloy ang pagsusulat",
   "notifications": "Mga abiso",
-  "blog": "Blog",
-  "save": "I-save",
+  "blog": "Pinakabago mula sa team ng Literary Universe",
   "add": "Magdagdag",
   "done": "Tapos na",
   "login": "Mag-log in",
@@ -15,11 +14,12 @@
   "refresh": "I-refresh",
   "open": "Tingnan",
   "read": "Markahan bilang binasa",
-  "capture": "Ang iyong mga tala at ideya ay magagamit kahit saan sa site.",
+  "capture": "Magdagdag ng tala",
   "pending": "Nakabinbin",
   "unavailable": "Hindi available",
   "snooze": "30′",
   "start": "Magsimulang magsulat",
   "messageBanner": "Bagong mensahe",
-  "releaseBanner": "Bagong kabanata o update"
+  "releaseBanner": "Bagong kabanata o update",
+  "noNotifications": "Walang abiso"
 }
