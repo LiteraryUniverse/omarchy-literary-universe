@@ -127,7 +127,7 @@ Panel {
     bar: root.bar
     open: root.opened
     contentWidth: fittedContentWidth(Style.space(420))
-    contentHeight: fittedContentHeight(loadedContentHeight, Style.space(720))
+    contentHeight: fittedContentHeight(loadedContentHeight)
     content: FocusScope {
       id: content
       property alias editor: capture
@@ -205,6 +205,7 @@ Panel {
               contentWidth: availableWidth
               clip: true
               Controls.ScrollBar.horizontal.policy: Controls.ScrollBar.AlwaysOff
+              Controls.ScrollBar.vertical.policy: notes.implicitHeight > height ? Controls.ScrollBar.AlwaysOn : Controls.ScrollBar.AlwaysOff
               PlainText { id: notes; width: notesScroll.availableWidth; text: root.snapshot.scratchpad ? root.snapshot.scratchpad.text : "" }
             }
             // Omarchy's kit has no multiline editor. Use the Qt control with its palette and spacing.

@@ -45,7 +45,9 @@ or unsynced local data.
 omarchy plugin update literaryuniverse.companion
 ```
 
-Settings, the keyring login and local drafts are kept across updates.
+Settings, the keyring login and local drafts are kept across updates. If the
+panel looks unchanged afterwards, restart the shell with `omarchy restart shell`:
+a running shell can keep the panel layout it loaded first.
 
 The update only fast-forwards. If it reports `cannot fast-forward`, the installed
 copy has local edits and stays on its old version. Discard them and update again:
